@@ -1,0 +1,37 @@
+@use "@/styles/mixins";
+
+.wrapper {
+  display: grid;
+  grid-template-rows: none;
+  grid-template-columns: 50%;
+  width: 85%;
+  max-width: 500px;
+  padding: 0 20px 20px;
+  @include mixins.isLargeMobile {}
+}
+
+.prev {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  text-align: left;
+  @include mixins.isLargeMobile {}
+}
+
+.prev-link {
+  font-size: 2em;
+  font-weight: lighter;
+  @include mixins.isLargeMobile {}
+}
+
+.next {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  text-align: right;
+  @include mixins.isLargeMobile {}
+}
+
+.next-link {
+  font-size: 2em;
+  font-weight: lighter;
+  @include mixins.isLargeMobile {}
+}

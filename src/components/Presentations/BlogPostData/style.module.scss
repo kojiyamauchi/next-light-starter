@@ -1,0 +1,34 @@
+@use "@/styles/mixins";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 20px 0;
+  @include mixins.isLargeMobile {}
+}
+
+.category {
+  margin: 0 20px 0 0;
+  @include mixins.isLargeMobile {}
+}
+
+.category-link {
+  display: inline-block;
+  margin: 0 5px 0 0;
+  font-size: 2em;
+  font-weight: lighter;
+  @include mixins.isLargeMobile {}
+
+  &:last-of-type {
+    margin: 0;
+    @include mixins.isLargeMobile {}
+  }
+}
+
+.date {
+  margin: 0 0 0 20px 0;
+  font-size: 2em;
+  font-weight: lighter;
+  @include mixins.isLargeMobile {}
+}
