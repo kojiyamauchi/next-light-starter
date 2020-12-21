@@ -1,0 +1,21 @@
+@use "@/styles/mixins";
+
+.wrapper {
+  width: 100%;
+  padding: 30px 0 20px;
+  text-align: center;
+  @include mixins.isLargeMobile {}
+
+  h1 {
+    margin: 0 0 20px 0;
+    font-size: 4em;
+    font-weight: lighter;
+    @include mixins.isLargeMobile {}
+  }
+
+  p {
+    font-size: 3em;
+    font-weight: lighter;
+    @include mixins.isLargeMobile {}
+  }
+}

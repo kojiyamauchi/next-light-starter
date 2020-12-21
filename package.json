@@ -1,0 +1,114 @@
+{
+  "name": "next-light-starter",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "git@github.com:kojiyamauchi/next-light-starter.git",
+  "author": "kojiyamauchi <all.the.small.things@me.com>",
+  "description": "This is Next.js Light Starter.",
+  "dependencies": {
+    "next": "latest",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sass": "^1.29.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.10",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
+    "chokidar-cli": "^2.1.0",
+    "copy-webpack-plugin": "^6.3.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.14.0",
+    "eslint-config-import": "^0.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.3",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "fork-ts-checker-webpack-plugin": "^6.0.4",
+    "gray-matter": "^4.0.2",
+    "husky": "^4.3.0",
+    "imagemin-webp-webpack-plugin": "^3.3.3",
+    "json-server": "^0.16.3",
+    "lint-staged": "^10.5.2",
+    "node-fetch": "^2.6.1",
+    "npm-check-updates": "^10.2.2",
+    "npm-run-all": "^4.1.5",
+    "opener": "^1.5.2",
+    "prettier": "^2.2.1",
+    "remark": "^13.0.0",
+    "remark-html": "^13.0.1",
+    "rimraf": "^3.0.2",
+    "stylelint": "^13.8.0",
+    "stylelint-config-recess-order": "^2.3.0",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-scss": "^3.18.0",
+    "stylelint-webpack-plugin": "^2.1.1",
+    "ts-jest": "^26.4.4",
+    "typescript": "4.1",
+    "webpack-build-notifier": "^2.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --allow-empty"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --fix --max-warnings 0"
+    ],
+    "src/**/*.scss": "stylelint --fix",
+    "next.config.js": "prettier --write",
+    "base.config.*.{ts,js}": "prettier --write"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx"
+    ],
+    "moduleNameMapper": {
+      "^@/(.+)": "<rootDir>/src/$1"
+    },
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/src/tests/**/*.test.+(ts|tsx)"
+    ]
+  },
+  "config": {
+    "path": {
+      "prefix": ""
+    }
+  },
+  "scripts": {
+    "setup": "",
+    "setup:browser": "opener -a 'Google Chrome Canary' http://localhost:3000$npm_package_config_path_prefix",
+    "setup:develop": "NODE_OPTIONS='--inspect' next dev",
+    "clean:images": "chokidar --silent true 'public/webps/*' -c 'rimraf public/webps/*.{png,jpg,jpeg,gif}'",
+    "clean:static": "rimraf delivery/*",
+    "dev": "npm-run-all -p setup:browser setup:develop clean:images",
+    "build": "next build && rimraf public/webps/*.{png,jpg,jpeg,gif}",
+    "start": "next start",
+    "serve": "npm-run-all -p setup:browser start",
+    "static": "next build && rimraf public/webps/*.{png,jpg,jpeg,gif} && next export -o delivery/",
+    "jest": "jest --passWithNoTests",
+    "check-pkg": "ncu",
+    "update-pkg": "ncu '/^(?!(@add-ignore-module-name|@add-ignore-module-name)).*$/' -u",
+    "re-install": "rm yarn.lock && rm -rf node_modules && yarn install"
+  }
+}

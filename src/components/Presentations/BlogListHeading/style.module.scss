@@ -1,0 +1,18 @@
+@use "@/styles/mixins";
+
+.blog-list-heading {
+  margin: 30px 0px 20px;
+  font-size: 3em;
+  font-weight: lighter;
+  @include mixins.isLargeMobile {
+    font-size: 4em;
+  }
+}
+
+.all-list-heading {
+  @include mixins.isLargeMobile {}
+}
+
+.category-list-heading {
+  @include mixins.isLargeMobile {}
+}

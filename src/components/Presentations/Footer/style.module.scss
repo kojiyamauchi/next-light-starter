@@ -1,0 +1,20 @@
+@use "@/styles/mixins";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 0 20px;
+  @include mixins.isLargeMobile {}
+}
+
+.link {
+  font-family: Lobster, cursive, 'arial';
+  font-size: 1.5em;
+  text-align: center;
+  cursor: pointer;
+  @include mixins.isLargeMobile {
+    font-size: 2.4em;
+  }
+}
