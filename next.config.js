@@ -7,8 +7,8 @@ const WebpackBuildNotifierPlugin = require('webpack-build-notifier')
 
 const pathPrefix = () => {
   const config = {
-    enable: false,
-    subDir: '/🛹'
+    enable: true,
+    subDir: '/next-light-starter'
   }
   if (!config.enable) return
   return { basePath: config.subDir, assetPrefix: `${config.subDir}/` }

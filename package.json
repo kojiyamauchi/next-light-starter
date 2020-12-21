@@ -92,7 +92,7 @@
   },
   "config": {
     "path": {
-      "prefix": ""
+      "prefix": "/next-light-starter/"
     }
   },
   "scripts": {

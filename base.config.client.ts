@@ -5,7 +5,7 @@
 export const baseSeo = {
   title: 'Next.js My Starter',
   description: 'This is My Next.js Starter',
-  location: 'https://kojiyamauchi.github.io/next-my-starter',
+  location: 'https://kojiyamauchi.github.io/next-light-starter',
   ogpSiteName: 'Next.js My Starter',
   ogpTitle: 'Next.js My Starter',
   ogpDescription: 'This is My Next.js Starter.',
