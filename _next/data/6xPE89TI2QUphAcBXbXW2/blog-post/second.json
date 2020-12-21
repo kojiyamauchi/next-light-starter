@@ -1,0 +1,1 @@
+{"pageProps":{"post":{"slug":"second","date":"2021-02-01","title":"Second Post.","categories":["cat-3","cat-4"],"description":"This is Second Blog Post.","image":"second_image","content":"<h1>Second Post.</h1>\n<p>This is Second Blog Post. 🚶‍♂️</p>\n"},"prev":"third","next":"first","fixedLayout":true,"pages":"blog-post"},"__N_SSG":true}
