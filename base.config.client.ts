@@ -3,12 +3,12 @@
 */
 
 export const baseSeo = {
-  title: 'Next.js My Starter',
-  description: 'This is My Next.js Starter',
+  title: 'Next.js Light Starter',
+  description: 'This is Light Next.js Starter',
   location: 'https://kojiyamauchi.github.io/next-light-starter',
-  ogpSiteName: 'Next.js My Starter',
-  ogpTitle: 'Next.js My Starter',
-  ogpDescription: 'This is My Next.js Starter.',
+  ogpSiteName: 'Next.js Light Starter',
+  ogpTitle: 'Next.js Light Starter',
+  ogpDescription: 'This is Light Next.js Starter.',
   ogpImage: 'ogp_image.jpg'
 } as const
 
