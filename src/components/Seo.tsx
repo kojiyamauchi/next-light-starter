@@ -41,14 +41,16 @@ export const SEO: React.VFC<Props> = (props): JSX.Element => {
       <meta property="og:description" content={setSeo.ogpDescription} key="ogp-description" />
       <meta property="og:image" content={setSeo.ogpImage} key="ogp-image" />
       <meta name="twitter:card" content="summary_large_image" key="twitter-card" />
+      <meta name="twitter:title" content={setSeo.title} key="twitter-title" />
+      <meta name="twitter:description" content={setSeo.description} key="twitter-description" />
       <link rel="apple-touch-icon" sizes="180x180" href={`${router.basePath}/favicons/apple-touch-icon.png`} key="apple-touch-icon" />
       <link rel="icon" type="image/png" sizes="32x32" href={`${router.basePath}/favicons/favicon-32x32.png`} key="l-favicon" />
       <link rel="icon" type="image/png" sizes="16x16" href={`${router.basePath}/favicons/favicon-16x16.png`} key="s-favicon" />
       <link rel="manifest" href={`${router.basePath}/site.webmanifest`} key="manifest" />
       <link rel="mask-icon" href={`${router.basePath}/favicons/safari-pinned-tab.svg`} color="#5bbad5" key="mask-icon" />
-      <link rel="canonical" href={setSeo.location} key="canonical" />
       <meta name="msapplication-TileColor" content="#da532c" key="msapplication-tile-color" />
       <meta name="theme-color" content="#ffffff" key="theme-color" />
+      <link rel="canonical" href={setSeo.location} key="canonical" />
     </Head>
   )
 }
