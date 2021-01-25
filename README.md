@@ -19,7 +19,6 @@
   - next.config.js -> `pathPrefix()`
   - base.config.client.ts -> `baseSeo.location`
   - package.json -> `config.path.prefix`
-  - site.webmanifest & browserconfig.xml
 
 ## ✋ TODO.
 
