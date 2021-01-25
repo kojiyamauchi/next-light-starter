@@ -40,17 +40,17 @@ export const Image: React.VFC<Partial<OptionalProps> & Props> = ({ image, extens
 
   useEffect((): void | (() => void) => {
     setFirstRender(false)
-    const matchesDispatch = (event: MediaQueryListEvent) => setMatches(event.matches)
+    const matchesDispatch = (event: MediaQueryListEvent): void => setMatches(event.matches)
 
     if (mediaMatch) {
       mediaMatch.addEventListener('change', matchesDispatch)
-      return () => mediaMatch.removeEventListener('change', matchesDispatch)
+      return (): void => mediaMatch.removeEventListener('change', matchesDispatch)
     }
   }, [mediaMatch])
 
   const path = extension === 'webp' ? 'webps' : 'images'
 
-  const stylesProps = (matches: boolean) => {
+  const stylesProps = (matches: boolean): React.CSSProperties => {
     return firstRender
       ? {
           display: 'none'

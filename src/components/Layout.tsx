@@ -15,6 +15,6 @@ export const Layout: React.FC<Props> = ({ pageProps, children }): JSX.Element =>
       <Footer />
     </div>
   ) : (
-    <div className={`${pageProps?.pages} layout fluid-layout`}>{/* TBD */}</div>
+    <div className={`${pageProps?.pages} layout fluid-layout`}>{children}</div>
   )
 }
