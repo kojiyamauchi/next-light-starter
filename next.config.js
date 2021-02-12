@@ -15,6 +15,9 @@ const pathPrefix = () => {
 }
 
 module.exports = {
+  // TODO: webpack @5.2*.** update is going to change a lot of things. ( CopyWebpackPlugin API etc.. )
+  // Temporary hold the next.js version 'latest' to '10.0.5' for now on package.json
+  // feature: { webpack5: true },
   webpack: (config, option) => {
     config.module.rules.push({
       enforce: 'pre',
