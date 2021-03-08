@@ -15,10 +15,12 @@ const pathPrefix = () => {
 }
 
 module.exports = {
-  // TODO: webpack @5.2*.** update is going to change a lot of things. ( CopyWebpackPlugin API etc.. )
-  // Temporary hold the next.js version 'latest' to '10.0.5' for now on package.json
+  // TODO: Even options below does not result in webpack5 🤔
+  // Specifying 'resolutions' in package.json does not work.
+  // So, fix version of CopyWebpackPlugin.( Currently 8.0.0 -> Set 6.3.2 )
   // feature: { webpack5: true },
   webpack: (config, option) => {
+    // console.log(option.webpack.version) -> 4.44.1 🤔
     config.module.rules.push({
       enforce: 'pre',
       test: /\.(js|jsx|ts|tsx)$/,
