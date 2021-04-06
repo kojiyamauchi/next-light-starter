@@ -57,11 +57,6 @@
     "typescript": "4.2",
     "webpack-build-notifier": "^2.1.1"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged --allow-empty"
-    }
-  },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
       "prettier --write",
@@ -97,6 +92,7 @@
     }
   },
   "scripts": {
+    "prepare": "husky install",
     "setup": "",
     "setup:browser": "opener -a 'Google Chrome Canary' http://localhost:3000$npm_package_config_path_prefix",
     "setup:develop": "NODE_OPTIONS='--inspect' next dev",
@@ -109,7 +105,7 @@
     "static": "next build && rimraf public/webps/*.{png,jpg,jpeg,gif} && next export -o delivery/",
     "jest": "jest --passWithNoTests",
     "check-pkg": "ncu",
-    "update-pkg": "ncu '/^(?!(copy-webpack-plugin|husky|@add-ignore-module-name)).*$/' -u",
+    "update-pkg": "ncu '/^(?!(copy-webpack-plugin|@add-ignore-module-name)).*$/' -u",
     "re-install": "rm yarn.lock && rm -rf node_modules && yarn install"
   }
 }
