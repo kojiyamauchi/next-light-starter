@@ -1,8 +1,8 @@
 export type ValueOf<T> = T[keyof T]
 
 export type PageProps = {
-  fixedLayout?: boolean
-  pages?: 'primary' | 'secondary' | 'third' | 'fourth' | 'blog-list' | 'blog-category' | 'blog-post' | 'other' | 'error' | '404' | '🏄‍♂️' | '🛹'
+  chooseLayout: 'fixedLayout' | 'fluidLayout'
+  pages: 'primary' | 'secondary' | 'third' | 'fourth' | 'blog-list' | 'blog-category' | 'blog-post' | 'other' | 'error' | '404' | '🏄‍♂️' | '🛹'
 }
 
 export type CmsField = 'slug' | 'date' | 'title' | 'categories' | 'description' | 'image' | 'content'
