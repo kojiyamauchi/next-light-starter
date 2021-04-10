@@ -1,5 +1,5 @@
 /*
-  Secondary Page.
+  500 Page.
 */
 
 import { GetStaticProps } from 'next'
@@ -11,21 +11,21 @@ import { PageHeading } from '@/components/Presentations/PageHeading'
 export const getStaticProps: GetStaticProps = async (): Promise<{ props: PageProps }> => ({
   props: {
     chooseLayout: 'fixedLayout',
-    pages: 'secondary'
+    pages: '500'
   }
 })
 
-const SecondaryPage: React.VFC = (): JSX.Element => {
+const Custom500: React.VFC = (): JSX.Element => {
   const router = useRouter()
 
   return (
     <>
-      <SEO title="Secondary Page" description="This is Secondary Page" locationPath={router.asPath} />
+      <SEO title="500 Page" description="This is 500 Page" locationPath={router.asPath} />
       <main className="main">
-        <PageHeading letter="Secondary" />
+        <PageHeading letter="500 - Server Side Error Occurred" />
       </main>
     </>
   )
 }
 
-export default SecondaryPage
+export default Custom500

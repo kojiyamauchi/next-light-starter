@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<GetStaticPropsRe
       numberPostsDisplayed,
       totalPage,
       posts,
-      fixedLayout: true,
+      chooseLayout: 'fixedLayout',
       pages: 'blog-list'
     },
     revalidate: false
