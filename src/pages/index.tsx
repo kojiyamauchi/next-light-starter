@@ -16,7 +16,7 @@ import { PageHeading } from '@/components/Presentations/PageHeading'
 
 export const getStaticProps: GetStaticProps = async (): Promise<{ props: PageProps }> => ({
   props: {
-    fixedLayout: true,
+    chooseLayout: 'fixedLayout',
     pages: 'primary'
   }
 })

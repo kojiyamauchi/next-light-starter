@@ -46,7 +46,7 @@ export const getStaticProps: GetStaticProps = async ({ params }): Promise<GetSta
       },
       prev,
       next,
-      fixedLayout: true,
+      chooseLayout: 'fixedLayout',
       pages: 'blog-post'
     },
     revalidate: false
