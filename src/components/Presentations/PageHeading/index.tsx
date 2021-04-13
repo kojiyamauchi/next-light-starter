@@ -9,7 +9,5 @@ type Props = {
 }
 
 export const PageHeading: React.VFC<Props> = ({ letter }): JSX.Element => (
-  <div className={styles.wrapper}>
-    <h2 className={`${styles['secondary-heading']} page-heading`}>This is {letter} Page.</h2>
-  </div>
+  <h2 className={`${styles['secondary-heading']} page-heading`}>This is {letter} Page.</h2>
 )
