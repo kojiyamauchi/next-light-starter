@@ -10,52 +10,82 @@
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "sass": "^1.32.8"
+    "sass": "^1.33.0"
   },
   "devDependencies": {
-    "@types/node": "^14.14.37",
-    "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.3",
-    "@typescript-eslint/eslint-plugin": "^4.21.0",
-    "@typescript-eslint/parser": "^4.21.0",
+    "@reduxjs/toolkit": "^1.5.1",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/builder-webpack5": "^6.2.9",
+    "@storybook/react": "^6.2.9",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/react-hooks": "^6.0.0",
+    "@testing-library/user-event": "^13.1.9",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.6.0",
+    "@types/react": "^17.0.6",
+    "@types/react-dom": "^17.0.5",
+    "@types/react-redux": "^7.1.16",
+    "@types/testing-library__jest-dom": "^5.9.5",
+    "@typescript-eslint/eslint-plugin": "^4.24.0",
+    "@typescript-eslint/parser": "^4.24.0",
     "chokidar-cli": "^2.1.0",
-    "copy-webpack-plugin": "6.3.2",
-    "dotenv": "^8.2.0",
-    "eslint": "^7.23.0",
+    "copy-webpack-plugin": "8.1.1",
+    "css-loader": "^5.2.5",
+    "dotenv": "^9.0.2",
+    "eslint": "^7.26.0",
     "eslint-config-import": "^0.13.0",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-loader": "^4.0.2",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^24.3.4",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.2",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-jest-dom": "^3.9.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.3.1",
-    "eslint-plugin-react": "^7.23.1",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "fork-ts-checker-webpack-plugin": "^6.2.0",
-    "gray-matter": "^4.0.2",
+    "eslint-plugin-testing-library": "^4.5.0",
+    "eslint-webpack-plugin": "^2.5.4",
+    "fork-ts-checker-notifier-webpack-plugin": "^4.0.0",
+    "fork-ts-checker-webpack-plugin": "^6.2.10",
+    "framer-motion": "^4.1.17",
+    "gray-matter": "^4.0.3",
     "husky": "6.0.0",
+    "hygen": "^6.1.0",
+    "identity-obj-proxy": "^3.0.0",
     "imagemin-webp-webpack-plugin": "^3.3.4",
-    "immer": "^9.0.1",
+    "immer": "^9.0.2",
+    "jest": "^26.6.3",
     "json-server": "^0.16.3",
-    "lint-staged": "^10.5.4",
+    "lint-staged": "^11.0.0",
     "node-fetch": "^2.6.1",
-    "npm-check-updates": "^11.3.0",
+    "npm-check-updates": "^11.5.13",
     "npm-run-all": "^4.1.5",
     "opener": "^1.5.2",
-    "prettier": "^2.2.1",
-    "react-hook-form": "^7.0.2",
+    "prettier": "^2.3.0",
+    "react-hook-form": "^7.6.3",
+    "react-loading-skeleton": "^2.2.0",
+    "react-query": "^3.16.0",
+    "react-query-devtools": "^2.6.3",
+    "react-redux": "^7.2.4",
+    "react-test-renderer": "^17.0.2",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-persist": "^6.0.0",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
     "rimraf": "^3.0.2",
-    "stylelint": "^13.12.0",
-    "stylelint-config-recess-order": "^2.3.0",
+    "sass-loader": "^11.1.1",
+    "style-loader": "^2.0.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-recess-order": "^2.4.0",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-scss": "^3.19.0",
     "stylelint-webpack-plugin": "^2.1.1",
-    "ts-jest": "^26.5.4",
+    "ts-jest": "^26.5.6",
     "typescript": "4.2",
-    "webpack-build-notifier": "^2.1.1"
+    "webpack-notifier": "^1.13.0"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
@@ -63,27 +93,39 @@
       "eslint --fix --max-warnings 0"
     ],
     "src/**/*.scss": "stylelint --fix",
-    "next.config.js": "prettier --write",
-    "base.config.*.{ts,js}": "prettier --write"
+    "./*.ts": [
+      "prettier --write",
+      "eslint --fix --max-warnings 0"
+    ],
+    "./*.js": "prettier --write"
   },
   "jest": {
     "moduleFileExtensions": [
       "ts",
-      "tsx"
+      "tsx",
+      "js",
+      "jsx"
     ],
     "moduleNameMapper": {
-      "^@/(.+)": "<rootDir>/src/$1"
+      "^@/(.+)": "<rootDir>/src/$1",
+      "\\.(css|scss)$": "identity-obj-proxy"
     },
     "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest"
+      "^.+\\.(ts|tsx)$": "ts-jest",
+      "\\.(webp|svg|png|jpg|jpeg|gif)$": "<rootDir>/jestFileTransformer.js"
     },
+    "setupFilesAfterEnv": [
+      "<rootDir>/testingLibrary.config.ts"
+    ],
     "globals": {
       "ts-jest": {
-        "tsconfig": "tsconfig.json"
+        "tsconfig": "tsconfig.jest.json"
       }
     },
     "testMatch": [
-      "**/src/tests/**/*.test.+(ts|tsx)"
+      "**/src/tests/**/*.test.+(ts|tsx|js|jsx)",
+      "**/src/components/**/*.test.+(ts|tsx|js|jsx)",
+      "**/src/hooks/**/*.test.+(ts|tsx|js|jsx)"
     ]
   },
   "config": {
@@ -98,14 +140,21 @@
     "setup:develop": "NODE_OPTIONS='--inspect' next dev",
     "clean:images": "chokidar --silent true 'public/webps/*' -c 'rimraf public/webps/*.{png,jpg,jpeg,gif}'",
     "clean:static": "rimraf delivery/* && touch delivery/.gitkeep",
-    "dev": "npm-run-all -p setup:browser setup:develop clean:images",
+    "storybook": "BROWSER='google chrome canary' start-storybook -s ./public -p 6006",
+    "dev": "npm-run-all -p setup:browser setup:develop clean:images storybook",
     "build": "next build && rimraf public/webps/*.{png,jpg,jpeg,gif}",
     "start": "next start",
     "serve": "npm-run-all -p setup:browser start",
     "static": "next build && rimraf public/webps/*.{png,jpg,jpeg,gif} && next export -o delivery/",
+    "build-storybook": "build-storybook -s ./public -o delivery/storybook",
+    "build:static": "npm-run-all -p static build-storybook",
     "jest": "jest --passWithNoTests",
+    "add:fc": "hygen add component",
+    "add:page": "hygen add page",
+    "add:hooks": "hygen add hooks",
+    "add:store": "hygen add store",
     "check-pkg": "ncu",
-    "update-pkg": "ncu '/^(?!(copy-webpack-plugin|@add-ignore-module-name)).*$/' -u",
+    "update-pkg": "ncu '/^(?!(add-ignore-module-name|@add-ignore-module-name)).*$/' -u",
     "re-install": "rm yarn.lock && rm -rf node_modules && yarn install"
   }
 }
