@@ -3,7 +3,7 @@
 exports[`Blog List Pager Component Unit Test Snap Shot Testing All Post 1`] = `
 <DocumentFragment>
   <ul
-    class="wrapper"
+    class="wrapper "
   >
     <li
       class="prev"
@@ -34,7 +34,7 @@ exports[`Blog List Pager Component Unit Test Snap Shot Testing All Post 1`] = `
 exports[`Blog List Pager Component Unit Test Snap Shot Testing Category Post 1`] = `
 <DocumentFragment>
   <ul
-    class="wrapper"
+    class="wrapper "
   >
     <li
       class="prev"

@@ -3,7 +3,7 @@
 exports[`Blog Post Pager Component Unit Test Snap Shot Testing 1`] = `
 <DocumentFragment>
   <ul
-    class="wrapper"
+    class="wrapper "
   >
     <li
       class="prev"

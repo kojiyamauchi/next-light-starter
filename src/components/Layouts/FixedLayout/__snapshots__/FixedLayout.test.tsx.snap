@@ -52,6 +52,7 @@ exports[`Fixed Layout Component Unit Test Snap Shot Testing 1`] = `
     </header>
     <main
       class="main-content"
+      style="background-image: url(/next-light-starter/webps/logo_cream.webp);"
     />
     <footer
       class="wrapper"

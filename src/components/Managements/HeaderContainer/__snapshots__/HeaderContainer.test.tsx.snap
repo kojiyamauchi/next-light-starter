@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Foo Component Unit Test Snap Shot Testing 1`] = `
+exports[`Header Container Component Unit Test Snap Shot Testing 1`] = `
 <DocumentFragment>
   <header
     class="wrapper"
