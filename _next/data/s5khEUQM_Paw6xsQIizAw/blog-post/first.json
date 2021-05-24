@@ -1,0 +1,1 @@
+{"pageProps":{"post":{"slug":"first","date":"2021-01-01","title":"First Post.","categories":["cat-1","cat-2"],"description":"This is First Blog Post.","image":"first_image","content":"<h1>First Post.</h1>\n<p>This is First Blog Post. 🍺</p>\n"},"prev":"second","next":false,"chooseLayout":"blogPostLayout","pages":"blog-post"},"__N_SSG":true}
