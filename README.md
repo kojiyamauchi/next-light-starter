@@ -4,6 +4,7 @@
 </h1>
 
 <p align="center"><a href="https://kojiyamauchi.github.io/next-light-starter/">https://kojiyamauchi.github.io/next-light-starter</a></p>
+<p align="center"><a href="https://kojiyamauchi.github.io/next-light-starter/storybook/">https://kojiyamauchi.github.io/next-light-starter/storybook</a></p>
 <p align="center">This Repo's Will Only Use "next build && next export" When Deploying.<br>(Don't Use Vercel.)</p>
 
 ## 🌴 Usage.
