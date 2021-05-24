@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Blog List Layout Component Unit Test Snap Shot Testing 1`] = `
+<DocumentFragment>
+  <div
+    class="ui-test wrapper"
+  >
+    <header
+      class="wrapper"
+    >
+      <h1
+        class="primary-heading"
+      >
+        Next.js light Starter
+      </h1>
+      <ul
+        class="wrapper"
+      >
+        <li>
+          <a
+            class="link"
+            href="/"
+          >
+            Primary Page
+          </a>
+        </li>
+        <li>
+          <a
+            class="link"
+            href="/secondary"
+          >
+            Secondary Page
+          </a>
+        </li>
+        <li>
+          <a
+            class="link"
+            href="/third"
+          >
+            Third Page
+          </a>
+        </li>
+        <li>
+          <a
+            class="link"
+            href="/blog-list"
+          >
+            Blog Page
+          </a>
+        </li>
+      </ul>
+    </header>
+    <main
+      class="main-content"
+    />
+    <footer
+      class="wrapper"
+    >
+      <a
+        class="link"
+        href="http://kojiyamauchi.com"
+        rel="noreferrer"
+        target="_blank"
+      >
+        © 2021 All The Small Things, All Rights Reserved.
+      </a>
+    </footer>
+  </div>
+</DocumentFragment>
+`;

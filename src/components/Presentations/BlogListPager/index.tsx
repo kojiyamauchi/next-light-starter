@@ -9,13 +9,14 @@ type Props = {
   pageIndex: number
   isFirst: boolean
   isLast: boolean
+  storybook?: boolean
 }
 
-export const BlogListPager: React.VFC<Props> = ({ category, pageIndex, isFirst, isLast }): JSX.Element => {
+export const BlogListPager: React.VFC<Props> = ({ category, pageIndex, isFirst, isLast, storybook }): JSX.Element => {
   const branches = category ? `/blog-category/${category}/` : `/blog-list/`
 
   return (
-    <ul className={styles.wrapper}>
+    <ul className={`${styles.wrapper} ${storybook ? styles['is-storybook'] : ''}`}>
       {!isFirst && (
         <li className={styles.prev}>
           <Link href={`${branches}${pageIndex === 2 ? '' : pageIndex - 1}`}>

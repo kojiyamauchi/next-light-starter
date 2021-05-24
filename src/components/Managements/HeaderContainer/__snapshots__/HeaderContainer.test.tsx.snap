@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Container Component Unit Test Snap Shot Testing 1`] = `
+<DocumentFragment>
+  <header
+    class="wrapper"
+  >
+    <h1
+      class="primary-heading"
+    >
+      Next.js light Starter
+    </h1>
+    <ul
+      class="wrapper"
+    >
+      <li>
+        <a
+          class="link"
+          href="/"
+        >
+          Primary Page
+        </a>
+      </li>
+      <li>
+        <a
+          class="link"
+          href="/secondary"
+        >
+          Secondary Page
+        </a>
+      </li>
+      <li>
+        <a
+          class="link"
+          href="/third"
+        >
+          Third Page
+        </a>
+      </li>
+      <li>
+        <a
+          class="link"
+          href="/blog-list"
+        >
+          Blog Page
+        </a>
+      </li>
+    </ul>
+  </header>
+</DocumentFragment>
+`;

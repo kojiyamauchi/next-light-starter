@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps = async ({ params }): Promise<GetSta
       numberPostsDisplayed,
       totalPage,
       categoryPosts,
-      chooseLayout: 'fixedLayout',
+      chooseLayout: 'blogListLayout',
       pages: 'blog-category'
     },
     revalidate: false
@@ -71,25 +71,23 @@ const BlogCategory: React.VFC<Props> = ({ numberPostsDisplayed, totalPage, categ
         description={`This is ${categorySlug} - Page ${currentPageIndex}.`}
         locationPath={router.asPath}
       />
-      <main className="blog-category">
-        <BlogListHeading branches="category" categorySlug={categorySlug} categoryListIndex={currentPageIndex} />
-        {categoryPosts.map((info, index) => {
-          return (
-            index >= skip &&
-            index < limit && (
-              <Link key={index} href={`/blog-post/${info.slug}`}>
-                <a>
-                  <article>
-                    <Image image={info.image} extension="webp" altProps={info.image} mobileMaxWidth="200px" desktopMaxWidth="300px" margin="0 0 5px 0" />
-                    <BlogListData title={info.title} date={info.date} />
-                  </article>
-                </a>
-              </Link>
-            )
+      <BlogListHeading branches="category" categorySlug={categorySlug} categoryListIndex={currentPageIndex} />
+      {categoryPosts.map((info, index) => {
+        return (
+          index >= skip &&
+          index < limit && (
+            <Link key={index} href={`/blog-post/${info.slug}`}>
+              <a>
+                <article>
+                  <Image image={info.image} extension="webp" altProps={info.image} mobileMaxWidth="200px" desktopMaxWidth="300px" margin="0 0 5px 0" />
+                  <BlogListData title={info.title} date={info.date} />
+                </article>
+              </a>
+            </Link>
           )
-        })}
-        <BlogListPager category={categorySlug} pageIndex={currentPageIndex} isFirst={isFirst} isLast={isLast} />
-      </main>
+        )
+      })}
+      <BlogListPager category={categorySlug} pageIndex={currentPageIndex} isFirst={isFirst} isLast={isLast} />
     </>
   )
 }

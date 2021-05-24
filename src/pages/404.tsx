@@ -21,9 +21,7 @@ const Custom404: React.VFC = (): JSX.Element => {
   return (
     <>
       <SEO title="404 Page" description="This is 404 Page" locationPath={router.asPath} />
-      <main className="main">
-        <PageHeading letter="404 - Page Not Found" />
-      </main>
+      <PageHeading letter="404 - Page Not Found" translation={true} />
     </>
   )
 }

@@ -21,9 +21,7 @@ const Custom500: React.VFC = (): JSX.Element => {
   return (
     <>
       <SEO title="500 Page" description="This is 500 Page" locationPath={router.asPath} />
-      <main className="main">
-        <PageHeading letter="500 - Server Side Error Occurred" />
-      </main>
+      <PageHeading letter="500 - Server Side Error Occurred" translation={true} />
     </>
   )
 }

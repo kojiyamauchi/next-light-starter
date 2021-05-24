@@ -35,3 +35,7 @@
   font-weight: lighter;
   @include mixins.isLargeMobile {}
 }
+
+.is-storybook {
+  margin: 0 auto;
+}

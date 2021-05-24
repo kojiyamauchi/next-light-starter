@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page Heading Component Unit Test Snap Shot Testing 1`] = `
+<DocumentFragment>
+  <h2
+    class="secondary-heading page-heading "
+  >
+    This is Snap Shot Test Page.
+  </h2>
+</DocumentFragment>
+`;

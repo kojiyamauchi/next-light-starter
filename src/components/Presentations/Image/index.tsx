@@ -1,5 +1,5 @@
 /*
-  Image.
+  Image Component.
 */
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
@@ -9,6 +9,7 @@ type Props = {
   image: string
   extension: 'webp' | 'svg' | 'png' | 'jpg' | 'gif'
   altProps: string
+  unitTestPath?: string
 }
 
 type OptionalKeys =
@@ -32,11 +33,12 @@ type OptionalProps = {
   [P in OptionalKeys]: string
 }
 
-export const Image: React.VFC<Partial<OptionalProps> & Props> = ({ image, extension, altProps, ...props }): JSX.Element => {
+export const Image: React.VFC<Partial<OptionalProps> & Props> = ({ image, extension, altProps, unitTestPath, ...props }): JSX.Element => {
   const mediaMatch = typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)')
   const [firstRender, setFirstRender] = useState(true)
   const [matches, setMatches] = useState(mediaMatch && mediaMatch.matches)
   const router = useRouter()
+  const pickBasePath = process.env.envMode ? `${router.basePath}/` : unitTestPath ? unitTestPath : ''
 
   useEffect((): void | (() => void) => {
     setFirstRender(false)
@@ -56,7 +58,7 @@ export const Image: React.VFC<Partial<OptionalProps> & Props> = ({ image, extens
           display: 'none'
         }
       : {
-          display: 'inline-block',
+          display: 'block',
           width: matches ? props.desktopWidth || '100%' : props.mobileWidth || '100%',
           minWidth: matches ? props.desktopMinWidth || 'none' : props.mobileMinWidth || 'none',
           maxWidth: matches ? props.desktopMaxWidth || 'none' : props.mobileMaxWidth || 'none',
@@ -71,16 +73,10 @@ export const Image: React.VFC<Partial<OptionalProps> & Props> = ({ image, extens
     <>
       {firstRender ? (
         <>
-          <img src={`${router.basePath}/images/loading.svg`} />
+          <img src={`${pickBasePath}images/loading.svg`} />
         </>
       ) : (
-        <img
-          className={styles.image}
-          src={`${router.basePath}/${path}/${image}.${extension}`}
-          alt={altProps}
-          loading="lazy"
-          style={{ ...stylesProps(matches) }}
-        />
+        <img className={styles.image} src={`${pickBasePath}${path}/${image}.${extension}`} alt={altProps} loading="lazy" style={{ ...stylesProps(matches) }} />
       )}
     </>
   )

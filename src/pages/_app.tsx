@@ -15,7 +15,7 @@
 */
 import { NextComponentType, NextPageContext } from 'next'
 import { PageProps } from '@/types/type'
-import { Layout } from '@/components/Layout'
+import { Layout } from '@/components/Layouts'
 import '@/styles/default.scss'
 
 type AppProps = {

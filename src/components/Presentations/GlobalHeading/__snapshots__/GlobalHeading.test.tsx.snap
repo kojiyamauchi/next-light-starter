@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Global Heading Component Unit Test Snap Shot Testing 1`] = `
+<DocumentFragment>
+  <h1
+    class="primary-heading"
+  >
+    Next.js light Starter
+  </h1>
+</DocumentFragment>
+`;

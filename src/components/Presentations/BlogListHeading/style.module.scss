@@ -16,3 +16,7 @@
 .category-list-heading {
   @include mixins.isLargeMobile {}
 }
+
+.is-storybook {
+  text-align: center;
+}

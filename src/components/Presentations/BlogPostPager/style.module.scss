@@ -10,6 +10,10 @@
   @include mixins.isLargeMobile {}
 }
 
+.is-storybook {
+  margin: 0 auto;
+}
+
 .prev {
   grid-row: 1 / 2;
   grid-column: 1 / 2;

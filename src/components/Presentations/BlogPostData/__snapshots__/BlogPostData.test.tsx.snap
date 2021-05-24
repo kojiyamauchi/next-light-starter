@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Blog Post Data Component Unit Test Snap Shot Testing 1`] = `
+<DocumentFragment>
+  <ul
+    class="wrapper"
+  >
+    <li
+      class="category"
+    >
+      <a
+        class="category-link"
+        href="/blog-category/category-1"
+      >
+        category-1.
+      </a>
+      <a
+        class="category-link"
+        href="/blog-category/category-2"
+      >
+        category-2.
+      </a>
+    </li>
+    <li
+      class="date"
+    >
+      2021/01/01
+    </li>
+  </ul>
+</DocumentFragment>
+`;
