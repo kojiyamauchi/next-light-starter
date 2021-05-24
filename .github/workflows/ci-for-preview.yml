@@ -11,8 +11,8 @@ env:
   LAUNCH_BUILD: on # Launch Build. [ on, off ]
 
 jobs:
-  eslint-and-stylelint:
-    name: ESLint & stylelint for Preview
+  eslint-and-stylelint-and-jest:
+    name: ESLint & stylelint & jest for Preview
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -82,7 +82,7 @@ jobs:
 
   build-test:
     name: Build Test for Preview
-    needs: eslint-and-stylelint
+    needs: eslint-and-stylelint-and-jest
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
