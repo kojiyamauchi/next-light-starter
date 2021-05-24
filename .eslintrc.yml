@@ -19,6 +19,8 @@ plugins:
   - jest
   - react
   - react-hooks
+  - testing-library
+  - jest-dom
 settings:
   react:
     version: 'detect'
@@ -37,6 +39,8 @@ extends:
   - 'eslint:recommended'
   - 'plugin:@typescript-eslint/recommended'
   - 'plugin:react/recommended'
+  - 'plugin:testing-library/react'
+  - 'plugin:jest-dom/recommended'
   - 'prettier'
 rules:
   indent: off
@@ -76,4 +80,4 @@ rules:
   'react/prop-types': off
   'react-hooks/rules-of-hooks': error
   'react-hooks/exhaustive-deps': warn
-  '@typescript-eslint/ban-ts-comment': error
+  '@typescript-eslint/ban-ts-comment': off
