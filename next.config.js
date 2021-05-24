@@ -1,13 +1,18 @@
 const path = require('path')
-const ForkTsChecker = require('fork-ts-checker-webpack-plugin')
-const StylelintPlugin = require('stylelint-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const ForkTsChecker = require('fork-ts-checker-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
+const StylelintPlugin = require('stylelint-webpack-plugin')
+const ForkTsCheckerNotifierWebpackPlugin = require('fork-ts-checker-notifier-webpack-plugin')
+const WebpackNotifierPlugin = require('webpack-notifier')
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin')
-const WebpackBuildNotifierPlugin = require('webpack-build-notifier')
+const logFontBold = '\x1b[1m'
+const logFontColorCyan = '\u001b[36m'
+const logFontReset = '\x1b[0m'
 
 const pathPrefix = () => {
   const config = {
-    enable: true,
+    enable: false,
     subDir: '/next-light-starter'
   }
   if (!config.enable) return
@@ -15,33 +20,15 @@ const pathPrefix = () => {
 }
 
 module.exports = {
-  // TODO: Even options below does not result in webpack5 🤔
-  // Specifying 'resolutions' in package.json does not work.
-  // So, fix version of CopyWebpackPlugin.( Currently 8.0.0 -> Set 6.3.2 )
-  // feature: { webpack5: true },
+  future: { webpack5: true },
   webpack: (config, option) => {
-    // console.log(option.webpack.version) -> 4.44.1 🤔
-    config.module.rules.push({
-      enforce: 'pre',
-      test: /\.(js|jsx|ts|tsx)$/,
-      exclude: /(node_modules)$/,
-      use: 'eslint-loader'
-    })
+    option.isServer && console.info('🏗  Currently Webpack Ver:', `${logFontBold}${logFontColorCyan}${option.webpack.version}${logFontReset}`)
+
+    // When Extend Webpack Rule.
+    // config.module.rules.push({})
 
     option.isServer &&
       config.plugins.push(
-        new ForkTsChecker({
-          typescript: {
-            diagnosticOptions: {
-              semantic: true,
-              syntactic: true
-            }
-          }
-        }),
-        new StylelintPlugin({
-          files: 'src/styles/**/*.(s(c|a)ss|css)',
-          fix: true
-        }),
         new CopyWebpackPlugin({
           patterns: [
             {
@@ -51,14 +38,24 @@ module.exports = {
               noErrorOnMissing: true
             },
             {
-              from: '**/*.{png,jpg,jpeg,gif}',
-              context: path.resolve(__dirname, 'src', 'markdowns'),
-              to: path.resolve(__dirname, 'public', 'webps'),
-              flatten: true,
+              from: path.resolve(__dirname, 'src/markdowns/**/*.{png,jpg,jpeg,gif}'),
+              to: path.resolve(__dirname, 'public', 'webps', '[name][ext]'),
               noErrorOnMissing: true
             }
           ]
         }),
+        new ForkTsChecker({
+          typescript: {
+            diagnosticOptions: {
+              semantic: true,
+              syntactic: true
+            }
+          }
+        }),
+        new ESLintPlugin({ files: [path.resolve(__dirname, 'src/**/*.{ts,tsx,js,jsx}')], failOnWarning: true }),
+        new StylelintPlugin({ files: 'src/**/*.(s(c|a)ss|css)', fix: true }),
+        new ForkTsCheckerNotifierWebpackPlugin({ title: 'TypeScript | Next.js' }),
+        new WebpackNotifierPlugin({ title: 'ESLint or Webpack Build | Next.js ' }),
         new ImageminWebpWebpackPlugin({
           config: [
             {
@@ -70,11 +67,13 @@ module.exports = {
           ],
           detailedLogs: false,
           silent: false
-        }),
-        new WebpackBuildNotifierPlugin({ title: 'Next.js Build 🏄‍', suppressSuccess: 'initial' })
+        })
       )
     return config
   },
-
+  // For Pick Up Node Env from Client Side.
+  env: {
+    envMode: process.env.NODE_ENV
+  },
   ...pathPrefix()
 }
