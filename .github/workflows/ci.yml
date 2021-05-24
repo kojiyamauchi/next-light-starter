@@ -5,9 +5,9 @@ on:
     branches: develop
 
 env:
-  LAUNCH_JEST: off # Launch Jest. [ on, off ]
-  LAUNCH_STYLELINT: off # Launch stylelint. [ on, off ]
   LAUNCH_ESLINT: off # Launch ESLint. [ on, off ]
+  LAUNCH_STYLELINT: off # Launch stylelint. [ on, off ]
+  LAUNCH_JEST: off # Launch Jest. [ on, off ]
   LAUNCH_BUILD: off # Launch Build. [ on, off ]
 
 jobs:
@@ -26,7 +26,18 @@ jobs:
           echo "LAUNCH_ESLINT=${LAUNCH_ESLINT}" >> $GITHUB_ENV
           echo "LAUNCH_STYLELINT=${LAUNCH_STYLELINT}" >> $GITHUB_ENV
           echo "LAUNCH_JEST=${LAUNCH_JEST}" >> $GITHUB_ENV
-          if ls src/tests/*.test.ts > /dev/null 2>&1 || ls src/tests/*.test.tsx > /dev/null 2>&1 || ls src/tests/*.test.js > /dev/null 2>&1
+          if ls src/components/**/**/*.test.ts > /dev/null 2>&1 \
+            || ls src/components/**/**/*.test.tsx > /dev/null 2>&1 \
+            || ls src/components/**/**/*.test.jsx > /dev/null 2>&1 \
+            || ls src/components/**/**/*.test.js > /dev/null 2>&1 \
+            || ls src/hooks/**/*.test.ts > /dev/null 2>&1 \
+            || ls src/hooks/**/*.test.tsx > /dev/null 2>&1 \
+            || ls src/hooks/**/*.test.jsx > /dev/null 2>&1 \
+            || ls src/hooks/**/*.test.js > /dev/null 2>&1 \
+            || ls src/tests/*.test.ts > /dev/null 2>&1 \
+            || ls src/tests/*.test.tsx > /dev/null 2>&1 \
+            || ls src/tests/*.test.js > /dev/null 2>&1 \
+            || ls src/tests/*.test.jsx > /dev/null 2>&1
           then
               echo "FILE_EXISTS=on" >> $GITHUB_ENV
           else
