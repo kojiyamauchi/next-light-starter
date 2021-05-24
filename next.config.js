@@ -12,7 +12,7 @@ const logFontReset = '\x1b[0m'
 
 const pathPrefix = () => {
   const config = {
-    enable: false,
+    enable: true,
     subDir: '/next-light-starter'
   }
   if (!config.enable) return
