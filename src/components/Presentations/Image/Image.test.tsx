@@ -25,7 +25,7 @@ beforeAll(() => {
 
 describe('Image Component Unit Test', () => {
   it('Snap Shot Testing', () => {
-    const { asFragment } = render(<Image image="logo_cream" extension="webp" altProps="Unit Test Image" unitTestPath={`${process.cwd()}/public/`} />)
+    const { asFragment } = render(<Image image="logo_cream" extension="webp" altProps="Unit Test Image" unitTestPath={`/next-light-starter/public/`} />)
     expect(asFragment()).toMatchSnapshot()
   })
 })
