@@ -7,10 +7,11 @@ import styles from './style.module.scss'
 type Props = {
   prev: string | false
   next: string | false
+  storybook?: boolean
 }
 
-export const BlogPostPager: React.VFC<Props> = ({ prev, next }): JSX.Element => (
-  <ul className={styles.wrapper}>
+export const BlogPostPager: React.VFC<Props> = ({ prev, next, storybook }): JSX.Element => (
+  <ul className={`${styles.wrapper} ${storybook ? styles['is-storybook'] : ''}`}>
     {prev && (
       <li className={styles.prev}>
         <Link href={`/blog-post/${prev}/`}>

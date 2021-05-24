@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Blog List Pager Component Unit Test Snap Shot Testing All Post 1`] = `
+<DocumentFragment>
+  <ul
+    class="wrapper"
+  >
+    <li
+      class="prev"
+    >
+      <a
+        class="prev-link"
+        href="/blog-list"
+        rel="prev"
+      >
+        New.
+      </a>
+    </li>
+    <li
+      class="next"
+    >
+      <a
+        class="next-link"
+        href="/blog-list/3"
+        rel="prev"
+      >
+        Old.
+      </a>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Blog List Pager Component Unit Test Snap Shot Testing Category Post 1`] = `
+<DocumentFragment>
+  <ul
+    class="wrapper"
+  >
+    <li
+      class="prev"
+    >
+      <a
+        class="prev-link"
+        href="/blog-category/snap-shot-unit-test/2"
+        rel="prev"
+      >
+        New.
+      </a>
+    </li>
+    <li
+      class="next"
+    >
+      <a
+        class="next-link"
+        href="/blog-category/snap-shot-unit-test/4"
+        rel="prev"
+      >
+        Old.
+      </a>
+    </li>
+  </ul>
+</DocumentFragment>
+`;

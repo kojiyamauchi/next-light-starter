@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Blog List Heading Component Unit Test Snap Shot Testing Props are All 1`] = `
+<DocumentFragment>
+  <h1
+    class="blog-list-heading all-list-heading"
+  >
+    All Post #100
+  </h1>
+</DocumentFragment>
+`;
+
+exports[`Blog List Heading Component Unit Test Snap Shot Testing Props are Category 1`] = `
+<DocumentFragment>
+  <h1
+    class="blog-list-heading category-list-heading"
+  >
+    Snap Shot Unit Test’s Post #999
+  </h1>
+</DocumentFragment>
+`;

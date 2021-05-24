@@ -8,8 +8,8 @@ import styles from './style.module.scss'
 export const Navigation: React.VFC = (): JSX.Element => {
   const link = [
     { path: '/', letter: 'Primary Page', id: 1 },
-    { path: '/secondary-page', letter: 'Secondary Page', id: 2 },
-    { path: '/third-page', letter: 'Third Page', id: 3 },
+    { path: '/secondary', letter: 'Secondary Page', id: 2 },
+    { path: '/third', letter: 'Third Page', id: 3 },
     { path: '/blog-list', letter: 'Blog Page', id: 4 }
   ]
 

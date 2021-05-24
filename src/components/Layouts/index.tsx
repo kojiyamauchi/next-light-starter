@@ -2,8 +2,9 @@
   Layout
 */
 
-import { FixedLayout } from '@/components/Layout/FixedLayout'
-import { FluidLayout } from '@/components/Layout/FluidLayout'
+import { FixedLayout } from '@/components/Layouts/FixedLayout'
+import { BlogListLayout } from '@/components/Layouts/BlogListLayout'
+import { BlogPostLayout } from '@/components/Layouts/BlogPostLayout'
 import { PageProps } from '@/types/type'
 
 type Props = {
@@ -14,8 +15,10 @@ const switchComponent = (chooseLayout: PageProps['chooseLayout'], pages: PagePro
   switch (chooseLayout) {
     case 'fixedLayout':
       return <FixedLayout pages={pages}>{children}</FixedLayout>
-    case 'fluidLayout':
-      return <FluidLayout pages={pages}>{children}</FluidLayout>
+    case 'blogListLayout':
+      return <BlogListLayout pages={pages}>{children}</BlogListLayout>
+    case 'blogPostLayout':
+      return <BlogPostLayout pages={pages}>{children}</BlogPostLayout>
   }
 }
 

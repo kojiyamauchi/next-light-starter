@@ -5,8 +5,13 @@
   font-size: 3em;
   font-weight: lighter;
   text-align: center;
-  transform: translateY(-100%);
+
   @include mixins.isLargeMobile {
     font-size: 4.8em;
   }
 }
+
+.is-translation {
+  transform: translateY(-100%);
+}
+

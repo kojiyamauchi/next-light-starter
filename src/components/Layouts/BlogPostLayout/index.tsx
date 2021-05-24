@@ -1,7 +1,6 @@
 /*
-  Fixed Layout.
+  Blog Post Layout.
 */
-
 import { HeaderContainer } from '@/components/Managements/HeaderContainer'
 import { Footer } from '@/components/Presentations/Footer'
 import { PageProps } from '@/types/type'
@@ -11,14 +10,12 @@ type Props = {
   pages: PageProps['pages']
 }
 
-const FixedLayoutComponent: React.FC<Props> = ({ pages, children }): JSX.Element => {
+export const BlogPostLayout: React.FC<Props> = ({ pages, children }): JSX.Element => {
   return (
-    <div className={`${pages} ${styles['fixed-layout']}`}>
+    <div className={`${pages} ${styles['wrapper']}`}>
       <HeaderContainer />
-      {children}
+      <main className={styles['main-content']}>{children}</main>
       <Footer />
     </div>
   )
 }
-
-export const FixedLayout = FixedLayoutComponent
