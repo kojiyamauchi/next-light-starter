@@ -1,5 +1,5 @@
 /*
-  Fourth Page.
+  Secondary Page.
 */
 
 import { GetStaticProps } from 'next'
@@ -11,21 +11,19 @@ import { PageHeading } from '@/components/Presentations/PageHeading'
 export const getStaticProps: GetStaticProps = async (): Promise<{ props: PageProps }> => ({
   props: {
     chooseLayout: 'fixedLayout',
-    pages: 'fourth'
+    pages: 'secondary'
   }
 })
 
-const FourthPage: React.VFC = (): JSX.Element => {
+const SecondaryPage: React.VFC = (): JSX.Element => {
   const router = useRouter()
 
   return (
     <>
-      <SEO title="Fourth Page" description="This is Fourth Page" locationPath={router.asPath} />
-      <main className="main">
-        <PageHeading letter="Fourth" />
-      </main>
+      <SEO title="Secondary Page" description="This is Secondary Page" locationPath={router.asPath} />
+      <PageHeading letter="Secondary" translation={true} />
     </>
   )
 }
 
-export default FourthPage
+export default SecondaryPage

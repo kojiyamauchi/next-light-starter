@@ -27,9 +27,7 @@ const PrimaryPage: React.VFC = (): JSX.Element => {
   return (
     <>
       <SEO locationPath={router.asPath} />
-      <main className="main">
-        <PageHeading letter="Primary" />
-      </main>
+      <PageHeading letter="Primary" translation={true} />
     </>
   )
 }

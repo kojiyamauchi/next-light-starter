@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<GetStaticPropsRe
       numberPostsDisplayed,
       totalPage,
       posts,
-      chooseLayout: 'fixedLayout',
+      chooseLayout: 'blogListLayout',
       pages: 'blog-list'
     },
     revalidate: false
@@ -61,25 +61,23 @@ const BlogList: React.VFC<Props> = ({ numberPostsDisplayed, totalPage, posts }):
   return (
     <>
       <SEO title={`All Post - Page ${currentPageIndex}`} description={`This is All Post - Page ${currentPageIndex}.`} locationPath={router.asPath} />
-      <main className="blog-list">
-        <BlogListHeading branches="all" allPostIndex={currentPageIndex} />
-        {posts.map((info, index) => {
-          return (
-            index >= skip &&
-            index < limit && (
-              <Link key={index} href={`/blog-post/${info.slug}`}>
-                <a>
-                  <article>
-                    <Image image={info.image} extension="webp" altProps={info.image} mobileMaxWidth="200px" desktopMaxWidth="300px" margin="0 0 5px 0" />
-                    <BlogListData title={info.title} date={info.date} />
-                  </article>
-                </a>
-              </Link>
-            )
+      <BlogListHeading branches="all" allPostIndex={currentPageIndex} />
+      {posts.map((info, index) => {
+        return (
+          index >= skip &&
+          index < limit && (
+            <Link key={index} href={`/blog-post/${info.slug}`}>
+              <a>
+                <article>
+                  <Image image={info.image} extension="webp" altProps={info.image} mobileMaxWidth="200px" desktopMaxWidth="300px" margin="0 0 5px 0" />
+                  <BlogListData title={info.title} date={info.date} />
+                </article>
+              </a>
+            </Link>
           )
-        })}
-        <BlogListPager pageIndex={currentPageIndex} isFirst={isFirst} isLast={isLast} />
-      </main>
+        )
+      })}
+      <BlogListPager pageIndex={currentPageIndex} isFirst={isFirst} isLast={isLast} />
     </>
   )
 }

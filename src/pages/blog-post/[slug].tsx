@@ -46,7 +46,7 @@ export const getStaticProps: GetStaticProps = async ({ params }): Promise<GetSta
       },
       prev,
       next,
-      chooseLayout: 'fixedLayout',
+      chooseLayout: 'blogPostLayout',
       pages: 'blog-post'
     },
     revalidate: false
@@ -59,12 +59,10 @@ const BlogPost: React.VFC<Props> = ({ post, prev, next }): JSX.Element => {
   return (
     <>
       <SEO title={post.title} description={post.description} locationPath={router.asPath} />
-      <article>
-        <BlogPostContent content={post.content} />
-        <BlogPostData categories={post.categories} date={post.date} />
-        <Image image={post.image} extension="webp" altProps={post.image} mobileMaxWidth="300px" desktopMaxWidth="400px" margin="0 0 20px 0" />
-        <BlogPostPager prev={prev} next={next} />
-      </article>
+      <BlogPostContent content={post.content} />
+      <BlogPostData categories={post.categories} date={post.date} />
+      <Image image={post.image} extension="webp" altProps={post.image} mobileMaxWidth="300px" desktopMaxWidth="400px" margin="0 0 20px 0" />
+      <BlogPostPager prev={prev} next={next} />
     </>
   )
 }
