@@ -84,49 +84,9 @@
     "stylelint-scss": "^3.19.0",
     "stylelint-webpack-plugin": "^2.1.1",
     "ts-jest": "^26.5.6",
+    "ts-node": "^10.0.0",
     "typescript": "4.2",
     "webpack-notifier": "^1.13.0"
-  },
-  "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "prettier --write",
-      "eslint --fix --max-warnings 0"
-    ],
-    "src/**/*.scss": "stylelint --fix",
-    "./*.ts": [
-      "prettier --write",
-      "eslint --fix --max-warnings 0"
-    ],
-    "./*.js": "prettier --write"
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx"
-    ],
-    "moduleNameMapper": {
-      "^@/(.+)": "<rootDir>/src/$1",
-      "\\.(css|scss)$": "identity-obj-proxy"
-    },
-    "transform": {
-      "^.+\\.(ts|tsx)$": "ts-jest",
-      "\\.(webp|svg|png|jpg|jpeg|gif)$": "<rootDir>/jestFileTransformer.js"
-    },
-    "setupFilesAfterEnv": [
-      "<rootDir>/testingLibrary.config.ts"
-    ],
-    "globals": {
-      "ts-jest": {
-        "tsconfig": "tsconfig.jest.json"
-      }
-    },
-    "testMatch": [
-      "**/src/tests/**/*.test.+(ts|tsx|js|jsx)",
-      "**/src/components/**/*.test.+(ts|tsx|js|jsx)",
-      "**/src/hooks/**/*.test.+(ts|tsx|js|jsx)"
-    ]
   },
   "config": {
     "path": {
