@@ -6,7 +6,7 @@ sh: prettier --write 'src/hooks/<%= Name %>/<%= Name %>.test.ts'
   camelName = h.changeCase.camel(name)
 -%>
 /*
-  <%= Name %> Hooks Unit Test.
+  <%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %> Hooks Unit Test.
 */
 
 import { renderHook /* , act*/ } from '@testing-library/react-hooks'

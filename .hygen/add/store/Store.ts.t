@@ -2,12 +2,12 @@
 to: src/ducks/<%= Name %>.ts
 sh: prettier --write 'src/ducks/<%= Name %>.ts'
 ---
-/*
-  <%= Name %> Store.
-*/
 <%
   camelName = h.changeCase.camel(name)
 %>
+/*
+  <%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %> Store.
+*/
 import { createAction, createReducer } from '@reduxjs/toolkit'
 import { <%= Name %>Type } from '@/types/type'
 

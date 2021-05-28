@@ -44,7 +44,7 @@ module.exports = {
       type: 'input',
       name: 'actionNumber',
       message: 'How many actions?\n',
-      validate: (answer) => !isNaN(Number(answer))
+      validate: (answer) => !isNaN(Number(answer)) && answer !== '' && Number(answer) > 0
     }
     const actionNumberAnswers = await prompter.prompt(actionNumberQuestion)
     const { actionNumber } = actionNumberAnswers

@@ -213,6 +213,15 @@ module.exports = {
               })
             })
           }
+        } else {
+          const addHooksReturnTypeAnnotationQuestion = {
+            type: 'input',
+            name: 'addHooksReturnTypeAnnotation',
+            message: 'Please input hooks return type annotation\n(🐶 When empty, type is undefined.)\n'
+          }
+          const addHooksReturnTypeAnnotationAnswer = await prompter.prompt(addHooksReturnTypeAnnotationQuestion)
+          const { addHooksReturnTypeAnnotation } = addHooksReturnTypeAnnotationAnswer
+          answers.addHooksReturnTypeAnnotation = addHooksReturnTypeAnnotation
         }
 
         const addReactHooksQuestion = {

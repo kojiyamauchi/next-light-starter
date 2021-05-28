@@ -7,7 +7,7 @@ sh: prettier --write 'src/pages/<%= name %>.tsx'
   pascalComponentName = h.changeCase.pascal(componentName)
 %>
 /*
-  <%= pascalComponentName %> Page.
+  <%= pascalComponentName.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %> Page.
   In 'getStaticPaths' && 'getStaticProps',
   When the File Does Not Exist in the Specified Path.
   'getStaticPaths' API's 'fallback' are...

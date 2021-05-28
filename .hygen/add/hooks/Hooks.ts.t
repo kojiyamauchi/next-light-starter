@@ -6,7 +6,7 @@ sh: prettier --write 'src/hooks/<%= Name %>/index.ts'
   camelName = h.changeCase.camel(name)
 -%>
 /*
-  <%= Name %> Hooks.
+  <%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %> Hooks.
 */
 
 <% if (reactHooks.length > 0) { -%>

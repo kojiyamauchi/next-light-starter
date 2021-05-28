@@ -9,7 +9,7 @@ sh: "<%= !useStorybook ? null : chooseOutPutDir === 'Layouts' ? `prettier --writ
   componentName = chooseOutPutDir === 'Layouts' ? `${Name}Layout` : chooseOutPutDir === 'Managements' ? `${Name}Container` : Name
 %>
 /*
-  <%= Name %><%= chooseOutPutDir === 'Layouts' ? ' Layout ' : chooseOutPutDir === 'Managements' ? ' Container ' : ' ' %>Component Storybook.
+  <%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %><%= chooseOutPutDir === 'Layouts' ? ' Layout ' : chooseOutPutDir === 'Managements' ? ' Container ' : ' ' %>Component Storybook.
 */
 
 import { <%= componentName %> } from './'

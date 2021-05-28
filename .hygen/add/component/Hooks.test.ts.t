@@ -7,7 +7,7 @@ sh: "<%= chooseOutPutDir === 'Layouts' ? null : !useHooks ? null : chooseOutPutD
 -%>
 <% if (chooseOutPutDir !== 'Layouts' && useHooks) { -%>
 /*
-  <%= Name %> Private Hooks Unit Test.
+  <%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %> Private Hooks Unit Test.
 */
 
 import { renderHook /* , act*/ } from '@testing-library/react-hooks'

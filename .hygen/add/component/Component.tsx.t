@@ -7,7 +7,7 @@ sh: "prettier --write 'src/components/<%= chooseOutPutDir === 'Layouts' ? `${cho
 -%>
 <% if (chooseOutPutDir === 'Layouts') { %>
 /*
-  <%= Name %> Layout Component.
+  <%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %> Layout Component.
 */
 
 import { PageProps } from '@/types/type'
