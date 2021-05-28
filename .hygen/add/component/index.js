@@ -35,7 +35,7 @@ module.exports = {
       const addPropsNumberQuestion = {
         type: 'input',
         name: 'addPropsNumber',
-        message: 'Add props? (Please enter a number, 0 <= n, Empty === 0)\n',
+        message: 'How many props? (Please enter a number, 0 <= n, Empty === 0)\n',
         validate: (answer) => !isNaN(Number(answer))
       }
       const addPropsNumberAnswer = await prompter.prompt(addPropsNumberQuestion)

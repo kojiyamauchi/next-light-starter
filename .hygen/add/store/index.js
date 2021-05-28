@@ -26,7 +26,7 @@ module.exports = {
         {
           type: 'input',
           name: 'addState',
-          message: 'Please add state. (Empty OK. You can write your own later.👌)\n'
+          message: 'Please add state.\n💁‍♂️ Example → [key]: [value], [key]: [value], [key]: [value]...\n👌 Empty OK. You can write your own later.\n'
         },
         {
           type: 'confirm',
