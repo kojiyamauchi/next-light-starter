@@ -17,7 +17,13 @@ beforeEach(() => {})
 
 describe('use<%= Name %> Hooks Unit Test', () => {
   test('TBD', () => {
-    const { result } = renderHook(() => use<%= Name %>())
+    const { result } = renderHook(() => use<%= Name %>(
+      <% if (hooksFnArgNumber > 0) { -%>
+        <% Array.from({ length: hooksFnArgNumber }, (_info, index) => { -%>
+          <%= `${h.changeCase.camel(hooksFnArgDetails[index][`hooksFnArgName${index + 1}`])},` %>
+        <% }) -%>
+      <% } %>
+    ))
     expect(result.current)
   })
 })

@@ -15,18 +15,24 @@ sh: prettier --write 'src/hooks/<%= Name %>/index.ts'
   <% }) -%>} from 'react'
 <% } -%>
 
-<% if (hooksTypeAlias) { -%>
+<% if (hooksReturnTypeAlias) { -%>
 export type hooksReturnType = {
-  <% Array.from({ length: hooksTypeNumber }, (_info, index) => { -%>
-    <%= h.changeCase.camel(hooksTypeDetails[index][`hooksTypeKey${index + 1}`]) %>: <%= h.changeCase.camel(hooksTypeDetails[index][`hooksTypeDetail${index + 1}`]) %>
+  <% Array.from({ length: hooksReturnTypeNumber }, (_info, index) => { -%>
+    <%= h.changeCase.camel(hooksReturnTypeDetails[index][`hooksReturnTypeKey${index + 1}`]) %>: <%- hooksReturnTypeDetails[index][`hooksReturnTypeDetail${index + 1}`] %>
   <% }) %>
 }
 <% } -%>
 
-export const use<%= Name %> = (<%= hooksFnArg %>): <%= hooksTypeAlias ? 'hooksReturnType' : 'undefined' %> => {
-  <% if (hooksTypeAlias) { -%>
-    return { <% Array.from({ length: hooksTypeNumber }, (_info, index) => { -%>
-      <%= `${h.changeCase.camel(hooksTypeDetails[index][`hooksTypeKey${index + 1}`])},` -%>
+export const use<%= Name %> = (
+  <% if (hooksFnArgNumber > 0) { -%>
+    <% Array.from({ length: hooksFnArgNumber }, (_info, index) => { -%>
+      <%= h.changeCase.camel(hooksFnArgDetails[index][`hooksFnArgName${index + 1}`]) %>: <%- `${hooksFnArgDetails[index][`hooksFnArgType${index + 1}`]},` %>
+    <% }) -%>
+  <% } %>
+): <%- hooksReturnTypeAlias ? 'hooksReturnType' : hooksReturnTypeAnnotation ? hooksReturnTypeAnnotation : 'undefined' %> => {
+  <% if (hooksReturnTypeAlias) { -%>
+    return { <% Array.from({ length: hooksReturnTypeNumber }, (_info, index) => { -%>
+      <%= `${h.changeCase.camel(hooksReturnTypeDetails[index][`hooksReturnTypeKey${index + 1}`])},` -%>
     <% }) -%>}
   <% } else { -%>
   return undefined
