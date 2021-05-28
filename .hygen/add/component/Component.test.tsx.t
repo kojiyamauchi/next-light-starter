@@ -18,14 +18,14 @@ import '@testing-library/jest-dom/extend-expect'
 // import userEvent from '@testing-library/user-event'
 
 <% if (chooseOutPutDir === 'Layouts') { %>
-describe('<%= Name %> Layout Component Unit Test', () => {
+describe('<%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %> Layout Component Unit Test', () => {
   it('Snap Shot Testing', () => {
     const { asFragment } = render( <<%= componentName %> pages="ui-test" /> )
     expect(asFragment()).toMatchSnapshot()
   })
 })
 <% } else { %>
-describe('<%= Name %><%= chooseOutPutDir === 'Managements' ? ' Container ' : ' ' %>Component Unit Test', () => {
+describe('<%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %><%= chooseOutPutDir === 'Managements' ? ' Container ' : ' ' %>Component Unit Test', () => {
   it('Snap Shot Testing', () => {
       const { asFragment } = render(<<%= componentName %> 
       <% if (addPropsNumber > 0) { -%>

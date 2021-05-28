@@ -16,7 +16,7 @@ import { <%= componentName %> } from './'
 // import { action } from '@storybook/addon-actions'
 
 export default {
-  title: '<%= Name %><%= chooseOutPutDir === 'Layouts' ? ' Layout ' : chooseOutPutDir === 'Managements' ? ' Container ' : ' ' %>Component',
+  title: '<%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %><%= chooseOutPutDir === 'Layouts' ? ' Layout ' : chooseOutPutDir === 'Managements' ? ' Container ' : ' ' %>Component',
   component: <%= componentName %>
 }
 
