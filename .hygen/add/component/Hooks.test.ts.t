@@ -18,7 +18,13 @@ beforeEach(() => {})
 
 describe('use<%= h.changeCase.pascal(addHooksFnName) %> Hooks Unit Test', () => {
   test('TBD', () => {
-    const { result } = renderHook(() => use<%= h.changeCase.pascal(addHooksFnName) %>())
+    const { result } = renderHook(() => use<%= h.changeCase.pascal(addHooksFnName) %>(
+      <% if (addHooksFnArgNumber > 0) { -%>
+        <% Array.from({ length: addHooksFnArgNumber }, (_info, index) => { -%>
+          <%= `${h.changeCase.camel(addHooksFnArgDetails[index][`addHooksFnArgName${index + 1}`])},` %>
+        <% }) -%>
+      <% } %>
+    ))
     expect(result.current)
   })
 })

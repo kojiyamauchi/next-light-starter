@@ -2,7 +2,7 @@ const logFontBold = '\x1b[1m'
 const logFontColorCyan = '\u001b[36m'
 const logFontColorRed = '\u001b[31m'
 const logFontReset = '\x1b[0m'
-const errorMessage = `🙄 ${logFontBold}${logFontColorRed}Forget to enter the name command? Check it again.${logFontReset}\nCommand: 🌞 ${logFontBold}${logFontColorCyan}yarn add:hooks [name]${logFontReset}`
+const errorMessage = `🙄 ${logFontBold}${logFontColorRed}Forget to enter the name command? Check it again.${logFontReset}\nCommand: 🌞 ${logFontBold}${logFontColorCyan}yarn frontend:add:hooks [name]${logFontReset}`
 
 module.exports = {
   prompt: async ({ prompter, args }) => {
@@ -11,70 +11,118 @@ module.exports = {
     if (!name) throw new Error(errorMessage)
     answers.name = name
 
-    const hooksFnArgQuestion = {
+    const hooksFnArgNumberQuestion = {
       type: 'input',
-      name: 'hooksFnArg',
-      message: 'Please input hooks function arg. (Empty OK.👌)\n'
+      name: 'hooksFnArgNumber',
+      message: 'Add hooks function arg? (Please enter a number, 0 <= n, Empty === 0)\n',
+      validate: (answer) => !isNaN(Number(answer))
     }
-    const hooksFnArgAnswer = await prompter.prompt(hooksFnArgQuestion)
-    const { hooksFnArg } = hooksFnArgAnswer
-    answers.hooksFnArg = hooksFnArg
+    const hooksFnArgNumberAnswer = await prompter.prompt(hooksFnArgNumberQuestion)
+    const { hooksFnArgNumber } = hooksFnArgNumberAnswer
+    answers.hooksFnArgNumber = hooksFnArgNumber
 
-    const hooksTypeAliasQuestion = {
+    if (hooksFnArgNumber > 0) {
+      answers.hooksFnArgDetails = Array.from({ length: answers.hooksFnArgNumber }, (_info, index) => {
+        return {
+          [`hooksFnArgName${index + 1}`]: undefined,
+          [`hooksFnArgType${index + 1}`]: undefined
+        }
+      })
+
+      const hooksFnArgDetailQuestionTemp = (number) => {
+        return [
+          {
+            type: 'input',
+            name: `hooksFnArgName${number}`,
+            message: `Please add hooks fn arg${number} name.\n`,
+            validate: (answer) => answer !== ''
+          },
+          {
+            type: 'input',
+            name: `hooksFnArgType${number}`,
+            message: `Please add hooks fn arg${number} type\n`,
+            validate: (answer) => answer !== ''
+          }
+        ]
+      }
+      const hooksFnArgDetailQuestion = Array.from({ length: answers.hooksFnArgNumber }, (_info, index) => hooksFnArgDetailQuestionTemp(index + 1)).flat()
+      const hooksFnArgDetailAnswer = await prompter.prompt(hooksFnArgDetailQuestion)
+
+      answers.hooksFnArgDetails.forEach((info, index, arr) => {
+        Object.keys(info).forEach((detailsKey) => {
+          Object.keys(hooksFnArgDetailAnswer).forEach((answersKey) => {
+            if (answersKey === detailsKey) arr[index][detailsKey] = hooksFnArgDetailAnswer[answersKey]
+          })
+        })
+      })
+    }
+
+    const hooksReturnTypeAliasQuestion = {
       type: 'confirm',
-      name: 'hooksTypeAlias',
+      name: 'hooksReturnTypeAlias',
       message: 'Define a type alias for hooks functions return type annotations?\n'
     }
-    const hooksTypeAliasAnswer = await prompter.prompt(hooksTypeAliasQuestion)
-    const { hooksTypeAlias } = hooksTypeAliasAnswer
-    answers.hooksTypeAlias = hooksTypeAlias
+    const hooksReturnTypeAliasAnswer = await prompter.prompt(hooksReturnTypeAliasQuestion)
+    const { hooksReturnTypeAlias } = hooksReturnTypeAliasAnswer
+    answers.hooksReturnTypeAlias = hooksReturnTypeAlias
 
-    if (hooksTypeAlias) {
-      const hooksTypeNumberQuestion = {
+    if (hooksReturnTypeAlias) {
+      const hooksReturnTypeNumberQuestion = {
         type: 'input',
-        name: 'hooksTypeNumber',
-        message: 'Please input hooks types number.\n',
+        name: 'hooksReturnTypeNumber',
+        message: 'Please input hooks return types number.\n',
         validate: (answer) => !isNaN(Number(answer)) && answer !== '' && Number(answer) > 0
       }
-      const hooksTypeNumberAnswer = await prompter.prompt(hooksTypeNumberQuestion)
-      const { hooksTypeNumber } = hooksTypeNumberAnswer
-      answers.hooksTypeNumber = Number(hooksTypeNumber)
+      const hooksReturnTypeNumberAnswer = await prompter.prompt(hooksReturnTypeNumberQuestion)
+      const { hooksReturnTypeNumber } = hooksReturnTypeNumberAnswer
+      answers.hooksReturnTypeNumber = Number(hooksReturnTypeNumber)
 
-      if (answers.hooksTypeNumber !== 0) {
-        answers.hooksTypeDetails = Array.from({ length: answers.hooksTypeNumber }, (_info, index) => {
+      if (answers.hooksReturnTypeNumber !== 0) {
+        answers.hooksReturnTypeDetails = Array.from({ length: answers.hooksReturnTypeNumber }, (_info, index) => {
           return {
-            [`hooksTypeKey${index + 1}`]: undefined,
-            [`hooksTypeDetail${index + 1}`]: undefined
+            [`hooksReturnTypeKey${index + 1}`]: undefined,
+            [`hooksReturnTypeDetail${index + 1}`]: undefined
           }
         })
 
-        const hooksTypeDetailQuestionTemp = (number) => {
+        const hooksReturnTypeDetailQuestionTemp = (number) => {
           return [
             {
               type: 'input',
-              name: `hooksTypeKey${number}`,
-              message: `Please add hooks type${number} key.\n`,
+              name: `hooksReturnTypeKey${number}`,
+              message: `Please add hooks return type${number} key.\n`,
               validate: (answer) => answer !== ''
             },
             {
               type: 'input',
-              name: `hooksTypeDetail${number}`,
-              message: `Please add hooks type${number} types\n`,
+              name: `hooksReturnTypeDetail${number}`,
+              message: `Please add hooks return type${number} types\n`,
               validate: (answer) => answer !== ''
             }
           ]
         }
-        const hooksTypeDetailQuestion = Array.from({ length: answers.hooksTypeNumber }, (_info, index) => hooksTypeDetailQuestionTemp(index + 1)).flat()
-        const hooksTypeDetailAnswer = await prompter.prompt(hooksTypeDetailQuestion)
+        const hooksReturnTypeDetailQuestion = Array.from({ length: answers.hooksReturnTypeNumber }, (_info, index) =>
+          hooksReturnTypeDetailQuestionTemp(index + 1)
+        ).flat()
+        const hooksReturnTypeDetailAnswer = await prompter.prompt(hooksReturnTypeDetailQuestion)
 
-        answers.hooksTypeDetails.forEach((info, index, arr) => {
+        answers.hooksReturnTypeDetails.forEach((info, index, arr) => {
           Object.keys(info).forEach((detailsKey) => {
-            Object.keys(hooksTypeDetailAnswer).forEach((answersKey) => {
-              if (answersKey === detailsKey) arr[index][detailsKey] = hooksTypeDetailAnswer[answersKey]
+            Object.keys(hooksReturnTypeDetailAnswer).forEach((answersKey) => {
+              if (answersKey === detailsKey) arr[index][detailsKey] = hooksReturnTypeDetailAnswer[answersKey]
             })
           })
         })
       }
+    } else {
+      const hooksReturnTypeAnnotationQuestion = {
+        type: 'input',
+        name: 'hooksReturnTypeAnnotation',
+        message: 'Please input hooks return type annotation\n(🐶 When empty, type is undefined.)\n'
+      }
+      const hooksReturnTypeAnnotationAnswer = await prompter.prompt(hooksReturnTypeAnnotationQuestion)
+      const { hooksReturnTypeAnnotation } = hooksReturnTypeAnnotationAnswer
+      answers.hooksReturnTypeAnnotation = hooksReturnTypeAnnotation
     }
 
     const reactHooksQuestion = {

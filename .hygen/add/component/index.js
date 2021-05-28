@@ -108,68 +108,107 @@ module.exports = {
         const { addHooksFnName } = addHooksFnNameAnswer
         answers.addHooksFnName = addHooksFnName
 
-        const addHooksFnArgQuestion = {
+        const addHooksFnArgNumberQuestion = {
           type: 'input',
-          name: 'addHooksFnArg',
-          message: 'Please add hooks function arg. (Empty OK.👌)\n'
+          name: 'addHooksFnArgNumber',
+          message: 'Add hooks function arg? (Please enter a number, 0 <= n, Empty === 0)\n',
+          validate: (answer) => !isNaN(Number(answer))
         }
-        const addHooksFnArgAnswer = await prompter.prompt(addHooksFnArgQuestion)
-        const { addHooksFnArg } = addHooksFnArgAnswer
-        answers.addHooksFnArg = addHooksFnArg
+        const addHooksFnArgNumberAnswer = await prompter.prompt(addHooksFnArgNumberQuestion)
+        const { addHooksFnArgNumber } = addHooksFnArgNumberAnswer
+        answers.addHooksFnArgNumber = addHooksFnArgNumber
 
-        const addHooksTypeAliasQuestion = {
+        if (addHooksFnArgNumber > 0) {
+          answers.addHooksFnArgDetails = Array.from({ length: answers.addHooksFnArgNumber }, (_info, index) => {
+            return {
+              [`addHooksFnArgName${index + 1}`]: undefined,
+              [`addHooksFnArgType${index + 1}`]: undefined
+            }
+          })
+
+          const addHooksFnArgDetailQuestionTemp = (number) => {
+            return [
+              {
+                type: 'input',
+                name: `addHooksFnArgName${number}`,
+                message: `Please add hooks fn arg${number} name.\n`,
+                validate: (answer) => answer !== ''
+              },
+              {
+                type: 'input',
+                name: `addHooksFnArgType${number}`,
+                message: `Please add hooks fn arg${number} type\n`,
+                validate: (answer) => answer !== ''
+              }
+            ]
+          }
+          const addHooksFnArgDetailQuestion = Array.from({ length: answers.addHooksFnArgNumber }, (_info, index) =>
+            addHooksFnArgDetailQuestionTemp(index + 1)
+          ).flat()
+          const addHooksFnArgDetailAnswer = await prompter.prompt(addHooksFnArgDetailQuestion)
+
+          answers.addHooksFnArgDetails.forEach((info, index, arr) => {
+            Object.keys(info).forEach((detailsKey) => {
+              Object.keys(addHooksFnArgDetailAnswer).forEach((answersKey) => {
+                if (answersKey === detailsKey) arr[index][detailsKey] = addHooksFnArgDetailAnswer[answersKey]
+              })
+            })
+          })
+        }
+
+        const addHooksReturnTypeAliasQuestion = {
           type: 'confirm',
-          name: 'addHooksTypeAlias',
+          name: 'addHooksReturnTypeAlias',
           message: 'Define a type alias for hooks functions return type annotations?\n'
         }
-        const addHooksTypeAliasAnswer = await prompter.prompt(addHooksTypeAliasQuestion)
-        const { addHooksTypeAlias } = addHooksTypeAliasAnswer
-        answers.addHooksTypeAlias = addHooksTypeAlias
+        const addHooksReturnTypeAliasAnswer = await prompter.prompt(addHooksReturnTypeAliasQuestion)
+        const { addHooksReturnTypeAlias } = addHooksReturnTypeAliasAnswer
+        answers.addHooksReturnTypeAlias = addHooksReturnTypeAlias
 
-        if (addHooksTypeAlias) {
-          const addHooksTypeNumberQuestion = {
+        if (addHooksReturnTypeAlias) {
+          const addHooksReturnTypeNumberQuestion = {
             type: 'input',
-            name: 'addHooksTypeNumber',
-            message: 'Please input hooks types number.\n',
+            name: 'addHooksReturnTypeNumber',
+            message: 'Please input hooks return types number.\n',
             validate: (answer) => !isNaN(Number(answer)) && answer !== '' && Number(answer) > 0
           }
-          const addHooksTypeNumberAnswer = await prompter.prompt(addHooksTypeNumberQuestion)
-          const { addHooksTypeNumber } = addHooksTypeNumberAnswer
-          answers.addHooksTypeNumber = Number(addHooksTypeNumber)
+          const addHooksReturnTypeNumberAnswer = await prompter.prompt(addHooksReturnTypeNumberQuestion)
+          const { addHooksReturnTypeNumber } = addHooksReturnTypeNumberAnswer
+          answers.addHooksReturnTypeNumber = Number(addHooksReturnTypeNumber)
 
-          if (answers.addHooksTypeNumber !== 0) {
-            answers.addHooksTypeDetails = Array.from({ length: answers.addHooksTypeNumber }, (_info, index) => {
+          if (answers.addHooksReturnTypeNumber !== 0) {
+            answers.addHooksReturnTypeDetails = Array.from({ length: answers.addHooksReturnTypeNumber }, (_info, index) => {
               return {
-                [`addHooksTypeKey${index + 1}`]: undefined,
-                [`addHooksTypeDetail${index + 1}`]: undefined
+                [`addHooksReturnTypeKey${index + 1}`]: undefined,
+                [`addHooksReturnTypeDetail${index + 1}`]: undefined
               }
             })
 
-            const addHooksTypeDetailQuestionTemp = (number) => {
+            const addHooksReturnTypeDetailQuestionTemp = (number) => {
               return [
                 {
                   type: 'input',
-                  name: `addHooksTypeKey${number}`,
-                  message: `Please add hooks type${number} key.\n`,
+                  name: `addHooksReturnTypeKey${number}`,
+                  message: `Please add hooks return type${number} key.\n`,
                   validate: (answer) => answer !== ''
                 },
                 {
                   type: 'input',
-                  name: `addHooksTypeDetail${number}`,
-                  message: `Please add hooks type${number} types\n`,
+                  name: `addHooksReturnTypeDetail${number}`,
+                  message: `Please add hooks return type${number} types\n`,
                   validate: (answer) => answer !== ''
                 }
               ]
             }
-            const addHooksTypeDetailQuestion = Array.from({ length: answers.addHooksTypeNumber }, (_info, index) =>
-              addHooksTypeDetailQuestionTemp(index + 1)
+            const addHooksReturnTypeDetailQuestion = Array.from({ length: answers.addHooksReturnTypeNumber }, (_info, index) =>
+              addHooksReturnTypeDetailQuestionTemp(index + 1)
             ).flat()
-            const addHooksTypeDetailAnswer = await prompter.prompt(addHooksTypeDetailQuestion)
+            const addHooksReturnTypeDetailAnswer = await prompter.prompt(addHooksReturnTypeDetailQuestion)
 
-            answers.addHooksTypeDetails.forEach((info, index, arr) => {
+            answers.addHooksReturnTypeDetails.forEach((info, index, arr) => {
               Object.keys(info).forEach((detailsKey) => {
-                Object.keys(addHooksTypeDetailAnswer).forEach((answersKey) => {
-                  if (answersKey === detailsKey) arr[index][detailsKey] = addHooksTypeDetailAnswer[answersKey]
+                Object.keys(addHooksReturnTypeDetailAnswer).forEach((answersKey) => {
+                  if (answersKey === detailsKey) arr[index][detailsKey] = addHooksReturnTypeDetailAnswer[answersKey]
                 })
               })
             })

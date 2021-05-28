@@ -27,7 +27,7 @@ export default {
     <<%= componentName %> 
       <% if (addPropsNumber > 0) { -%>
         <% Array.from({ length: addPropsNumber }, (_info, index) => { -%>
-          <%= h.changeCase.camel(addPropsDetails[index][`addPropsName${index + 1}`]) %>=<%- h.changeCase.camel(addPropsDetails[index][`addPropsType${index + 1}`]) === 'boolean' ? '{false} ' : h.changeCase.camel(addPropsDetails[index][`addPropsType${index + 1}`]) === 'number' ? '{0} ' : h.changeCase.camel(addPropsDetails[index][`addPropsType${index + 1}`]) === 'string' ? '"" ' : h.changeCase.camel(addPropsDetails[index][`addPropsType${index + 1}`]) === 'undefined' ? '{undefined} ' : h.changeCase.camel(addPropsDetails[index][`addPropsType${index + 1}`]) === 'null' ? '{null} ' : '{} ' %>
+          <%= h.changeCase.camel(addPropsDetails[index][`addPropsName${index + 1}`]) %>=<%- addPropsDetails[index][`addPropsType${index + 1}`] === 'boolean' ? '{false} ' : addPropsDetails[index][`addPropsType${index + 1}`] === 'number' ? '{0} ' : addPropsDetails[index][`addPropsType${index + 1}`] === 'string' ? '"" ' : addPropsDetails[index][`addPropsType${index + 1}`] === 'undefined' ? '{undefined} ' : addPropsDetails[index][`addPropsType${index + 1}`] === 'null' ? '{null} ' : '{} ' %>
         <% }) -%>
       <% } -%>
     />
