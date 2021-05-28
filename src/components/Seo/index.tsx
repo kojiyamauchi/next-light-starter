@@ -39,7 +39,7 @@ export const SEO: React.VFC<Props> = (props): JSX.Element => {
       <meta property="og:site_name" content={setSeo.ogpSiteName} key="ogp-site-name" />
       <meta property="og:title" content={setSeo.ogpTitle} key="ogp-title" />
       <meta property="og:description" content={setSeo.ogpDescription} key="ogp-description" />
-      <meta property="og:image" content={setSeo.ogpImage} key="ogp-image" />
+      <meta property="og:image" content={`${router.basePath}/images/${setSeo.ogpImage}`} key="ogp-image" />
       <meta name="twitter:card" content="summary_large_image" key="twitter-card" />
       <meta name="twitter:title" content={setSeo.title} key="twitter-title" />
       <meta name="twitter:description" content={setSeo.description} key="twitter-description" />
