@@ -31,7 +31,7 @@ export const <%= Name %>Layout: React.FC<Props> = ({ pages, children }): JSX.Ele
   componentName = chooseOutPutDir === 'Managements' ? `${Name}Container` : Name
 %>
 /*
-  <%= Name %><%= chooseOutPutDir === 'Managements' ? ' Container ' : ' ' %>Component.
+  <%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %><%= chooseOutPutDir === 'Managements' ? ' Container ' : ' ' %>Component.
 */
 
 <%- useHooks ? `import { use${h.changeCase.pascal(addHooksFnName)} } from './Hooks'` : '' %>
