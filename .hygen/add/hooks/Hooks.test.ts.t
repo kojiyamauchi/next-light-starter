@@ -16,7 +16,7 @@ beforeAll(() => {})
 beforeEach(() => {})
 
 describe('use<%= Name %> Hooks Unit Test', () => {
-  test('TBD', () => {
+  it('TBD', () => {
     const { result } = renderHook(() => use<%= Name %>(
       <% if (hooksFnArgNumber > 0) { -%>
         <% Array.from({ length: hooksFnArgNumber }, (_info, index) => { -%>

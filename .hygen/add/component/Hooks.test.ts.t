@@ -17,7 +17,7 @@ beforeAll(() => {})
 beforeEach(() => {})
 
 describe('use<%= h.changeCase.pascal(addHooksFnName) %> Hooks Unit Test', () => {
-  test('TBD', () => {
+  it('TBD', () => {
     const { result } = renderHook(() => use<%= h.changeCase.pascal(addHooksFnName) %>(
       <% if (addHooksFnArgNumber > 0) { -%>
         <% Array.from({ length: addHooksFnArgNumber }, (_info, index) => { -%>
