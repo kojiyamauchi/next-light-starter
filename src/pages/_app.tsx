@@ -14,6 +14,7 @@
   Basically, Global State Management is Inject in Here.
 */
 import { NextComponentType, NextPageContext } from 'next'
+import { Router } from 'next/router'
 import { PageProps } from '@/types/type'
 import { Layout } from '@/components/Layouts'
 import '@/styles/default.scss'
@@ -21,9 +22,11 @@ import '@/styles/default.scss'
 type AppProps = {
   Component: NextComponentType<NextPageContext, unknown, PageProps>
   pageProps: PageProps
+  router: Router
 }
 
-const App = ({ Component, pageProps }: AppProps): JSX.Element => {
+const App = ({ Component, pageProps, router }: AppProps): JSX.Element => {
+  console.info('🔍 Router Info from app.tsx:\n', router)
   return (
     <Layout pageProps={pageProps}>
       <Component {...pageProps} />
