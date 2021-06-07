@@ -12,7 +12,7 @@ sh: "prettier --write 'src/components/<%= chooseOutPutDir === 'Layouts' ? `${cho
   <%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %><%= chooseOutPutDir === 'Layouts' ? ' Layout ' : chooseOutPutDir === 'Managements' ? ' Container ' : ' ' %>Component Unit Test.
 */
 
-import { <%= componentName %> } from './'
+import { <%= componentName %> } from './<%= chooseOutPutDir === 'Layouts' ? '' : 'Component' %>'
 import { render /* ,screen */ } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 // import userEvent from '@testing-library/user-event'
