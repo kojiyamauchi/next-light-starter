@@ -2,7 +2,7 @@
   Blog Post Content Component Storybook.
 */
 
-import { BlogPostContent } from './'
+import { BlogPostContent } from './Component'
 // import { action } from '@storybook/addon-actions'
 
 export default {

@@ -2,7 +2,7 @@
   Global Heading Component Storybook.
 */
 
-import { GlobalHeading } from './'
+import { GlobalHeading } from './Component'
 // import { action } from '@storybook/addon-actions'
 
 export default {

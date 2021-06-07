@@ -2,7 +2,7 @@
   Blog Post Content Component Unit Test.
 */
 
-import { BlogPostContent } from './'
+import { BlogPostContent } from './Component'
 import { render /* ,screen */ } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 // import userEvent from '@testing-library/user-event'
