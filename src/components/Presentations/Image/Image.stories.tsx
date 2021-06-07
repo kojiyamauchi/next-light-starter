@@ -2,7 +2,7 @@
   Image Component Storybook.
 */
 
-import { Image } from './'
+import { Image } from './Component'
 // import { action } from '@storybook/addon-actions'
 
 export default {

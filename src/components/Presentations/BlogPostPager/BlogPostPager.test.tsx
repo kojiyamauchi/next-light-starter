@@ -2,7 +2,7 @@
   Blog Post Pager Component Unit Test.
 */
 
-import { BlogPostPager } from './'
+import { BlogPostPager } from './Component'
 import { render /* ,screen */ } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 // import userEvent from '@testing-library/user-event'

@@ -2,7 +2,7 @@
   Navigation Component Unit Test.
 */
 
-import { Navigation } from './'
+import { Navigation } from './Component'
 import { render /* ,screen */ } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 // import userEvent from '@testing-library/user-event'

@@ -2,7 +2,7 @@
   Blog Post Pager Component Storybook.
 */
 
-import { BlogPostPager } from './'
+import { BlogPostPager } from './Component'
 // import { action } from '@storybook/addon-actions'
 
 export default {

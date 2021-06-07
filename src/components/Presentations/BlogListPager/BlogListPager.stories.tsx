@@ -2,7 +2,7 @@
   Blog List Pager Component Storybook.
 */
 
-import { BlogListPager } from './'
+import { BlogListPager } from './Component'
 // import { action } from '@storybook/addon-actions'
 
 export default {

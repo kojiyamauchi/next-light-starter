@@ -2,7 +2,7 @@
   Blog List Data Component Storybook.
 */
 
-import { BlogListData } from './'
+import { BlogListData } from './Component'
 // import { action } from '@storybook/addon-actions'
 
 export default {

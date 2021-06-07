@@ -2,7 +2,7 @@
   Navigation Component Storybook.
 */
 
-import { Navigation } from './'
+import { Navigation } from './Component'
 // import { action } from '@storybook/addon-actions'
 
 export default {

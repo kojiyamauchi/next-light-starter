@@ -2,7 +2,7 @@
   Blog List Heading Component Storybook.
 */
 
-import { BlogListHeading } from './'
+import { BlogListHeading } from './Component'
 // import { action } from '@storybook/addon-actions'
 
 export default {

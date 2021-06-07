@@ -1,32 +1,11 @@
 ---
-to: "src/components/<%= chooseOutPutDir === 'Layouts' ? `${chooseOutPutDir}/${Name}Layout/index.tsx` : chooseOutPutDir === 'Managements' ? `${chooseOutPutDir}/${Name}Container/index.tsx` : `${chooseOutPutDir}/${Name}/index.tsx` %>"
-sh: "prettier --write 'src/components/<%= chooseOutPutDir === 'Layouts' ? `${chooseOutPutDir}/${Name}Layout/index.tsx` : chooseOutPutDir === 'Managements' ? `${chooseOutPutDir}/${Name}Container/index.tsx` : `${chooseOutPutDir}/${Name}/index.tsx` %>'"
+to: "<%= chooseOutPutDir === 'Layouts' ? null  : chooseOutPutDir === 'Managements' ? `src/components/${chooseOutPutDir}/${Name}Container/Component.tsx` : `src/components/${chooseOutPutDir}/${Name}/Component.tsx` %>"
+sh: "<%= chooseOutPutDir === 'Layouts' ? null  : chooseOutPutDir === 'Managements' ? `prettier --write src/components/${chooseOutPutDir}/${Name}Container/Component.tsx` : `prettier --write src/components/${chooseOutPutDir}/${Name}/Component.tsx` %>"
 ---
 <%
   camelName = h.changeCase.camel(name)
 -%>
-<% if (chooseOutPutDir === 'Layouts') { %>
-/*
-  <%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %> Layout Component.
-*/
-
-import { PageProps } from '@/types/type'
-<% if (useStyleModule) { -%>
-import styles from './style.module.scss'
-<% } -%>
-
-type Props = {
-  pages: PageProps['pages']
-}
-
-export const <%= Name %>Layout: React.FC<Props> = ({ pages, children }): JSX.Element => {
-  return (
-    <div className={`${pages} layout <%= camelName %>-layout<%- useStyleModule ? " ${styles['wrapper']}" : '' %>`}>
-      <main>{children}</main>
-    </div>
-  )
-}
-<% } else { %>
+<% if (chooseOutPutDir !== 'Layouts') { %>
 <%
   componentName = chooseOutPutDir === 'Managements' ? `${Name}Container` : Name
 %>
