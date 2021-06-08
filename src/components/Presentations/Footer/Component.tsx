@@ -5,11 +5,7 @@
 import { useState, useEffect } from 'react'
 import styles from './style.module.scss'
 
-export type Props = {
-  foo?: string
-}
-
-export const Footer: React.VFC<Props> = (): JSX.Element => {
+export const Footer: React.VFC = (): JSX.Element => {
   const [year, setYear] = useState<number | null>(null)
 
   useEffect(() => {
