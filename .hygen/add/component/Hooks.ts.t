@@ -7,7 +7,7 @@ sh: "<%= chooseOutPutDir === 'Layouts' ? null : !useHooks ? null : chooseOutPutD
 -%>
 <% if (chooseOutPutDir !== 'Layouts' && useHooks) { -%>
 /*
-  <%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %> Private Hooks.
+  <%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %><%= chooseOutPutDir === 'Managements' ? ' Container ' : ' ' %>Private Hooks.
 */
 
   <% if (addReactHooks.length > 0) { -%>
