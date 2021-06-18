@@ -18,9 +18,8 @@ rules:
   value-no-vendor-prefix:
     - true
     - ignoreValues:
-      - grid
-      - fill-available
+        - grid
+        - fill-available
   value-keyword-case:
     - lower
   selector-pseudo-element-colon-notation: single
-
