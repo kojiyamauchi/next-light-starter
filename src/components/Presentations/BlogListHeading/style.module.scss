@@ -4,17 +4,17 @@
   margin: 30px 0px 20px;
   font-size: 3em;
   font-weight: lighter;
-  @include mixins.isLargeMobile {
+  @include mixins.aboveLargeMobile {
     font-size: 4em;
   }
 }
 
 .all-list-heading {
-  @include mixins.isLargeMobile {}
+  @include mixins.aboveLargeMobile {}
 }
 
 .category-list-heading {
-  @include mixins.isLargeMobile {}
+  @include mixins.aboveLargeMobile {}
 }
 
 .is-storybook {
