@@ -42,6 +42,8 @@ extends:
   - 'plugin:testing-library/react'
   - 'plugin:jest-dom/recommended'
   - 'prettier'
+  #- 'next' Check Later.
+  #- 'plugin:@next/next/recommended' Check Later.
 rules:
   indent: off
   '@typescript-eslint/no-non-null-assertion': off

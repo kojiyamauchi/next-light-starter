@@ -5,5 +5,5 @@ sh: "<%= !useStyleModule ? null : chooseOutPutDir === 'Layouts' ? `stylelint --f
 @use "@/styles/mixins";
 
 .wrapper {
-  @include mixins.isLargeMobile {}
+  @include mixins.aboveLargeMobile {}
 }

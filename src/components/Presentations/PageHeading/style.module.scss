@@ -6,7 +6,7 @@
   font-weight: lighter;
   text-align: center;
 
-  @include mixins.isLargeMobile {
+  @include mixins.aboveLargeMobile {
     font-size: 4.8em;
   }
 }

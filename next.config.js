@@ -20,7 +20,7 @@ const pathPrefix = () => {
 }
 
 module.exports = {
-  future: { webpack5: true },
+  webpack5: true,
   webpack: (config, option) => {
     option.isServer && console.info('🏗  Currently Webpack Ver:', `${logFontBold}${logFontColorCyan}${option.webpack.version}${logFontReset}`)
 

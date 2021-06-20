@@ -7,7 +7,7 @@
   width: 85%;
   max-width: 500px;
   padding: 0 20px 20px;
-  @include mixins.isLargeMobile {}
+  @include mixins.aboveLargeMobile {}
 }
 
 .is-storybook {
@@ -18,24 +18,24 @@
   grid-row: 1 / 2;
   grid-column: 1 / 2;
   text-align: left;
-  @include mixins.isLargeMobile {}
+  @include mixins.aboveLargeMobile {}
 }
 
 .prev-link {
   font-size: 2em;
   font-weight: lighter;
-  @include mixins.isLargeMobile {}
+  @include mixins.aboveLargeMobile {}
 }
 
 .next {
   grid-row: 1 / 2;
   grid-column: 2 / 3;
   text-align: right;
-  @include mixins.isLargeMobile {}
+  @include mixins.aboveLargeMobile {}
 }
 
 .next-link {
   font-size: 2em;
   font-weight: lighter;
-  @include mixins.isLargeMobile {}
+  @include mixins.aboveLargeMobile {}
 }
