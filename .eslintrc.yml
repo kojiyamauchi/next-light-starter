@@ -38,21 +38,21 @@ settings:
 extends:
   - 'eslint:recommended'
   - 'plugin:@typescript-eslint/recommended'
-  - 'plugin:react/recommended'
   - 'plugin:testing-library/react'
   - 'plugin:jest-dom/recommended'
   - 'prettier'
-  #- 'next' Check Later.
-  #- 'plugin:@next/next/recommended' Check Later.
+  # eslint-config-next config see. -> https://github.com/vercel/next.js/blob/canary/packages/eslint-config-next/index.js
+  - 'next'
 rules:
   indent: off
+  '@next/next/no-img-element': off # This rule is not used when using next export.
   '@typescript-eslint/no-non-null-assertion': off
   '@typescript-eslint/naming-convention': off
   '@typescript-eslint/no-namespace': off
   '@typescript-eslint/member-delimiter-style': off
   '@typescript-eslint/no-empty-function': off
   '@typescript-eslint/prefer-interface': off
-  '@typescript-eslint/explicit-function-return-type': warn
+  '@typescript-eslint/explicit-function-return-type': error
   '@typescript-eslint/no-unused-vars':
     - error
     - varsIgnorePattern: '^AddIgnoreName'
