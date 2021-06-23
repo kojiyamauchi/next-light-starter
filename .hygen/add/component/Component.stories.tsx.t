@@ -15,10 +15,12 @@ sh: "<%= !useStorybook ? null : chooseOutPutDir === 'Layouts' ? `prettier --writ
 import { <%= componentName %> } from './<%= chooseOutPutDir === 'Layouts' ? '' : 'Component' %>'
 // import { action } from '@storybook/addon-actions'
 
-export default {
+const storiesInfo = {
   title: '<%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %><%= chooseOutPutDir === 'Layouts' ? ' Layout ' : chooseOutPutDir === 'Managements' ? ' Container ' : ' ' %>Component',
   component: <%= componentName %>
 }
+
+export default storiesInfo
 
 <% if (chooseOutPutDir === 'Layouts') { %>
   export const Default = (): JSX.Element => <<%= componentName %> pages="storybook" />
