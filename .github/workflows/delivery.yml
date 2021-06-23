@@ -49,7 +49,7 @@ jobs:
         run: yarn
       - name: Do Build
         if: env.LAUNCH_BUILD == 'on'
-        run: yarn build:static
+        run: yarn static
       - name: Clean Delivery Directory
         if: env.LAUNCH_DEPLOY == 'on' && env.DEPLOY_TYPE != 'ftp'
         run: rm delivery/.gitkeep
