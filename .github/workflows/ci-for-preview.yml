@@ -107,4 +107,4 @@ jobs:
         run: yarn
       - name: Do Build Test
         if: env.LAUNCH_BUILD == 'on'
-        run: yarn build:static
+        run: yarn static
