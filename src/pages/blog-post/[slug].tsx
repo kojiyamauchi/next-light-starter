@@ -61,7 +61,7 @@ const BlogPost: React.VFC<Props> = ({ post, prev, next }): JSX.Element => {
       <SEO title={post.title} description={post.description} locationPath={router.asPath} />
       <BlogPostContent content={post.content} />
       <BlogPostData categories={post.categories} date={post.date} />
-      <Image image={post.image} extension="webp" altProps={post.image} mobileMaxWidth="300px" desktopMaxWidth="400px" margin="0 0 20px 0" />
+      <Image image={post.image} extension="webp" alt={post.image} mobileMaxWidth="300px" desktopMaxWidth="400px" margin="0 0 20px 0" />
       <BlogPostPager prev={prev} next={next} />
     </>
   )

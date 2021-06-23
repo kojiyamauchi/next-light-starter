@@ -5,10 +5,12 @@
 import { BlogPostContent } from './Component'
 // import { action } from '@storybook/addon-actions'
 
-export default {
+const storiesInfo = {
   title: 'Blog Post Content Component',
   component: BlogPostContent
 }
+
+export default storiesInfo
 
 export const Default = (): JSX.Element => (
   <BlogPostContent
