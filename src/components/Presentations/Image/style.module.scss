@@ -5,5 +5,7 @@
 }
 
 .image {
+  display: block;
+  text-align: center;
   @include mixins.aboveLargeMobile {}
 }

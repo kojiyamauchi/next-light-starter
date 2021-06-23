@@ -69,7 +69,7 @@ const BlogList: React.VFC<Props> = ({ numberPostsDisplayed, totalPage, posts }):
             <Link key={index} href={`/blog-post/${info.slug}`}>
               <a>
                 <article>
-                  <Image image={info.image} extension="webp" altProps={info.image} mobileMaxWidth="200px" desktopMaxWidth="300px" margin="0 0 5px 0" />
+                  <Image image={info.image} extension="webp" alt={info.image} mobileMaxWidth="200px" desktopMaxWidth="300px" margin="0 0 5px 0" />
                   <BlogListData title={info.title} date={info.date} />
                 </article>
               </a>

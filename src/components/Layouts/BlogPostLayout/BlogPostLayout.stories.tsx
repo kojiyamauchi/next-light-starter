@@ -5,9 +5,11 @@
 import { BlogPostLayout } from './'
 // import { action } from '@storybook/addon-actions'
 
-export default {
+const storiesInfo = {
   title: 'Blog Post Layout Component',
   component: BlogPostLayout
 }
+
+export default storiesInfo
 
 export const Default = (): JSX.Element => <BlogPostLayout pages="storybook" />
