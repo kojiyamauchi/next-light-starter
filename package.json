@@ -31,6 +31,7 @@
     "@types/testing-library__jest-dom": "^5.14.0",
     "@typescript-eslint/eslint-plugin": "^4.28.0",
     "@typescript-eslint/parser": "^4.28.0",
+    "chokidar": "^3.5.2",
     "chokidar-cli": "^2.1.0",
     "copy-webpack-plugin": "9.0.0",
     "css-loader": "^5.2.6",
