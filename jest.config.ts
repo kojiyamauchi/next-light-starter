@@ -16,7 +16,12 @@ const config: Config.InitialOptions = {
       tsconfig: 'tsconfig.jest.json'
     }
   },
-  testMatch: ['**/src/tests/**/*.test.+(ts|tsx|js|jsx)', '**/src/components/**/*.test.+(ts|tsx|js|jsx)', '**/src/hooks/**/*.test.+(ts|tsx|js|jsx)']
+  testMatch: [
+    '**/src/tests/**/*.test.+(ts|tsx|js|jsx)',
+    '**/src/components/**/*.test.+(ts|tsx|js|jsx)',
+    '**/src/hooks/**/*.test.+(ts|tsx|js|jsx)',
+    '**/src/ducks/**/*.test.+(ts|tsx|js|jsx)'
+  ]
 }
 
 export default config
