@@ -72,12 +72,12 @@ export const Image: React.VFC<Partial<OptionalProps> & Props> = ({ image, extens
     <>
       {firstRender ? (
         <>
-          <img src={`${router ? router.basePath : ''}/images/loading.svg`} alt="Loading..." />
+          <img src={`${router ? `${router.basePath}/` : ''}images/loading.svg`} alt="Loading..." />
         </>
       ) : (
         <img
           className={styles.image}
-          src={`${router ? router.basePath : ''}/${path}/${image}.${extension}`}
+          src={`${router ? `${router.basePath}/` : ''}${path}/${image}.${extension}`}
           alt={alt}
           loading="lazy"
           style={{ ...stylesProps(matches) }}

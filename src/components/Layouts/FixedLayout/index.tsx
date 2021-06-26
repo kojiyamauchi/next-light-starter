@@ -20,7 +20,7 @@ export const FixedLayout: React.FC<Props> = ({ pages, children }): JSX.Element =
       <HeaderContainer />
       <main
         className={styles['main-content']}
-        style={{ backgroundImage: `${router ? `url("${router.basePath}/webps/logo_cream.webp")` : 'url("/webps/logo_cream.webp")'}` }}
+        style={{ backgroundImage: `${router ? `url("${router.basePath}/webps/logo_cream.webp")` : 'url("webps/logo_cream.webp")'}` }}
       >
         {children}
       </main>
