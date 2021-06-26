@@ -6,7 +6,7 @@ exports[`Image Component Unit Test Snap Shot Testing 1`] = `
     alt="Unit Test Image"
     class="image"
     loading="lazy"
-    src="/next-light-starter/public/webps/logo_cream.webp"
+    src="/webps/logo_cream.webp"
     style="display: block; width: 100%; min-width: none; max-width: none; height: auto; min-height: none; max-height: none; margin: 0px auto;"
   />
 </DocumentFragment>

@@ -1,6 +1,6 @@
 ---
-to: src/ducks/<%= Name %>.ts
-sh: prettier --write 'src/ducks/<%= Name %>.ts'
+to: src/ducks/<%= Name %>/index.ts
+sh: prettier --write 'src/ducks/<%= Name %>/index.ts'
 ---
 <%
   camelName = h.changeCase.camel(name)
