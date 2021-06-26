@@ -74,9 +74,10 @@ module.exports = {
       )
     return config
   },
-  // For Pick Up Node Env from Client Side.
+  // Pick Up Node Env from Client Side & Pick Up Base Path from Outside the FC.
   env: {
-    envMode: process.env.NODE_ENV
+    envMode: process.env.NODE_ENV,
+    basePath: pathPrefix() ? pathPrefix().basePath : ''
   },
   ...pathPrefix()
 }
