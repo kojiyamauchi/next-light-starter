@@ -15,7 +15,7 @@ sh: "<%= !useStorybook ? null : chooseOutPutDir === 'Layouts' ? `prettier --writ
 import { <%= componentName %> } from './<%= chooseOutPutDir === 'Layouts' ? '' : 'Component' %>'
 // import { action } from '@storybook/addon-actions'
 
-const storiesInfo = {
+const storiesInfo =  {
   title: '<%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %><%= chooseOutPutDir === 'Layouts' ? ' Layout ' : chooseOutPutDir === 'Managements' ? ' Container ' : ' ' %>Component',
   component: <%= componentName %>
 }

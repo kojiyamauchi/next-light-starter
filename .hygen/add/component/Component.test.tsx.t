@@ -13,9 +13,13 @@ sh: "prettier --write 'src/components/<%= chooseOutPutDir === 'Layouts' ? `${cho
 */
 
 import { <%= componentName %> } from './<%= chooseOutPutDir === 'Layouts' ? '' : 'Component' %>'
-import { render /* ,screen */ } from '@testing-library/react'
+import { render /* ,act,screen */ } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 // import userEvent from '@testing-library/user-event'
+<% if (chooseOutPutDir !== 'Layouts' && useHooks) { -%>
+// import { use<%= h.changeCase.pascal(addHooksFnName) %> } from './Hooks'
+// import { renderHook } from '@testing-library/react-hooks/dom'
+<% } %>
 
 <% if (chooseOutPutDir === 'Layouts') { %>
 describe('<%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %> Layout Component Unit Test', () => {
@@ -35,5 +39,16 @@ describe('<%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %><%= chooseOutPutDir 
       <% } -%>/>)
     expect(asFragment()).toMatchSnapshot()
   })
+  <% if (useHooks) { -%>
+  it('Operation Testing', () => {
+    const { container } = render(<<%= componentName %> 
+      <% if (addPropsNumber > 0) { -%>
+        <% Array.from({ length: addPropsNumber }, (_info, index) => { -%>
+          <%= h.changeCase.camel(addPropsDetails[index][`addPropsName${index + 1}`]) %>=<%- addPropsDetails[index][`addPropsType${index + 1}`] === 'boolean' ? '{false} ' : addPropsDetails[index][`addPropsType${index + 1}`] === 'number' ? '{0} ' : addPropsDetails[index][`addPropsType${index + 1}`] === 'string' ? '"" ' : addPropsDetails[index][`addPropsType${index + 1}`] === 'undefined' ? '{undefined} ' : addPropsDetails[index][`addPropsType${index + 1}`] === 'null' ? '{null} ' : '{} ' %>
+        <% }) -%>
+      <% } -%>/>)
+    expect(container)
+  })
+  <% } %>
 })
 <% } %>

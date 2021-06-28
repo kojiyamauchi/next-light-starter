@@ -8,13 +8,18 @@ sh: "<%= chooseOutPutDir === 'Layouts' ? null : !useHooks ? null : chooseOutPutD
 <% if (chooseOutPutDir !== 'Layouts' && useHooks) { -%>
 /*
   <%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %><%= chooseOutPutDir === 'Managements' ? ' Container ' : ' ' %>Private Hooks Unit Test.
+  Basically, Testing Around Hooks Return Values is Done on the Component Side.
 */
 
-import { renderHook /* , act*/ } from '@testing-library/react-hooks'
 import { use<%= h.changeCase.pascal(addHooksFnName) %> } from './Hooks'
+import { renderHook /* , act*/ } from '@testing-library/react-hooks'
 
 beforeAll(() => {})
 beforeEach(() => {})
+
+describe('<%= Name.replace(/([a-z0-9])([A-Z])/g, '$1 $2') %><%= chooseOutPutDir === 'Managements' ? ' Container ' : ' ' %>Private Hooks Each Function Unit Test', () => {
+  it('TBD', () => {})
+})
 
 describe('use<%= h.changeCase.pascal(addHooksFnName) %> Hooks Unit Test', () => {
   it('TBD', () => {
