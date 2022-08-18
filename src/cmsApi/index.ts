@@ -1,9 +1,10 @@
 import fs from 'fs'
-import { join } from 'path'
 import matter from 'gray-matter'
+import { join } from 'path'
 import { remark } from 'remark'
 import html from 'remark-html'
-import { VFileCompatible } from 'node_modules/unified/node_modules/vfile/lib/'
+import { VFileCompatible } from 'vfile'
+
 import { CmsField, Post } from '@/types/type'
 
 const postsDirectory = join(process.cwd(), 'src', 'markdowns')
