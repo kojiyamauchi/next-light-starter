@@ -1,22 +1,31 @@
 version: 0.2
 language: en
 words:
-  - reduxjs
-  - immer
-  - hygen
-  - persistor
-  - vfile
-  - pathpida
-  - noreferrer
-  - nocheck
+  - apng
   - callout
-  - Webps
-  - webps
-  - webp
-  - stylelint
-  - msapplication
+  - docgen
+  - Docgen
+  - esbenp
+  - hygen
+  - immer
   - Kaku
   - kojiyamauchi
+  - msapplication
+  - nocheck
+  - noreferrer
+  - pathpida
+  - peaceiris
+  - persistor
+  - reduxjs
+  - reviewdog
+  - rimraf
+  - stylelint
+  - tsbuildinfo
+  - vercel
+  - vfile
+  - webp
+  - webps
+  - Webps
 flagWords:
   - hte
 ignorePaths:
