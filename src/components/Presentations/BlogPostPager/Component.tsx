@@ -3,6 +3,9 @@
 */
 
 import Link from 'next/link'
+
+import { pagesPath } from '@/types/$path'
+
 import styles from './style.module.scss'
 
 type Props = {
@@ -11,11 +14,11 @@ type Props = {
   storybook?: boolean
 }
 
-export const BlogPostPager: React.VFC<Props> = ({ prev, next, storybook }): JSX.Element => (
+export const BlogPostPager: React.FC<Props> = ({ prev, next, storybook }): JSX.Element => (
   <ul className={`${styles.wrapper} ${storybook ? styles['is-storybook'] : ''}`}>
     {prev && (
       <li className={styles.prev}>
-        <Link href={`/blog-post/${prev}/`}>
+        <Link href={pagesPath.blog_post._slug(`${prev}`).$url()}>
           <a rel="prev" className={styles['prev-link']}>
             New Post.
           </a>
@@ -24,7 +27,7 @@ export const BlogPostPager: React.VFC<Props> = ({ prev, next, storybook }): JSX.
     )}
     {next && (
       <li className={styles.next}>
-        <Link href={`/blog-post/${next}/`}>
+        <Link href={pagesPath.blog_post._slug(`${next}`).$url()}>
           <a rel="prev" className={styles['next-link']}>
             Old Post.
           </a>

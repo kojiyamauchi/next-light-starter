@@ -2,10 +2,11 @@
   Footer Component.
 */
 
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
+
 import styles from './style.module.scss'
 
-export const Footer: React.VFC = (): JSX.Element => {
+export const Footer: React.FC = (): JSX.Element => {
   const [year, setYear] = useState<number | null>(null)
 
   useEffect(() => {

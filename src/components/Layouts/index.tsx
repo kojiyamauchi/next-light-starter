@@ -2,13 +2,14 @@
   Layout
 */
 
-import { FixedLayout } from '@/components/Layouts/FixedLayout'
 import { BlogListLayout } from '@/components/Layouts/BlogListLayout'
 import { BlogPostLayout } from '@/components/Layouts/BlogPostLayout'
+import { FixedLayout } from '@/components/Layouts/FixedLayout'
 import { PageProps } from '@/types/type'
 
 type Props = {
   pageProps: PageProps
+  children?: React.ReactNode
 }
 
 const switchComponent = (chooseLayout: PageProps['chooseLayout'], pages: PageProps['pages'], children: React.ReactNode): JSX.Element => {

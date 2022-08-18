@@ -4,10 +4,12 @@
 import { HeaderContainer } from '@/components/Managements/HeaderContainer'
 import { Footer } from '@/components/Presentations/Footer'
 import { PageProps } from '@/types/type'
+
 import styles from './style.module.scss'
 
 type Props = {
   pages: PageProps['pages']
+  children?: React.ReactNode
 }
 
 export const BlogPostLayout: React.FC<Props> = ({ pages, children }): JSX.Element => {
