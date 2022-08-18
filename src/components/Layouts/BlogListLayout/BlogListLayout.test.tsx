@@ -1,13 +1,12 @@
-/**
- * @jest-environment jsdom
- */
 /*
   Blog List Layout Component Unit Test.
 */
 
-import { BlogListLayout } from './'
-import { render /* ,screen */ } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
+
+import { render /* ,screen */ } from '@testing-library/react'
+
+import { BlogListLayout } from './'
 // import userEvent from '@testing-library/user-event'
 
 describe('Blog List Layout Component Unit Test', () => {

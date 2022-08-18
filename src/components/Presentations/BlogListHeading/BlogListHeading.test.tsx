@@ -1,13 +1,12 @@
-/**
- * @jest-environment jsdom
- */
 /*
   Blog List Heading Component Unit Test.
 */
 
-import { BlogListHeading } from './Component'
-import { render /* ,screen */ } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
+
+import { render /* ,screen */ } from '@testing-library/react'
+
+import { BlogListHeading } from './Component'
 // import userEvent from '@testing-library/user-event'
 
 describe('Blog List Heading Component Unit Test', () => {

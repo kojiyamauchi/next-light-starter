@@ -1,13 +1,12 @@
-/**
- * @jest-environment jsdom
- */
 /*
   Blog List Data Component Unit Test.
 */
 
-import { BlogListData } from './Component'
-import { render /* ,screen */ } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
+
+import { render /* ,screen */ } from '@testing-library/react'
+
+import { BlogListData } from './Component'
 // import userEvent from '@testing-library/user-event'
 
 describe('Blog List Data Component Unit Test', () => {
