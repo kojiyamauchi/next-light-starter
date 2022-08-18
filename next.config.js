@@ -24,7 +24,6 @@ const configPathPrefix = () => {
 }
 
 module.exports = {
-  webpack5: true,
   webpack: (config, option) => {
     // option are { buildId, dev, isServer, defaultLoaders, webpack }
     const { isServer, webpack } = option
