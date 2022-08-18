@@ -1,0 +1,32 @@
+version: 0.2
+language: en
+words:
+  - reduxjs
+  - immer
+  - hygen
+  - persistor
+  - vfile
+  - pathpida
+  - noreferrer
+  - nocheck
+  - callout
+  - Webps
+  - webps
+  - webp
+  - stylelint
+  - msapplication
+  - Kaku
+  - kojiyamauchi
+flagWords:
+  - hte
+ignorePaths:
+  - node_modules/**
+  - public/**
+  - .next/**
+  - .git/**
+  - .husky/**
+  - .history/**
+  - yarn.lock
+  - tsconfig.tsbuildinfo
+  - next-env.d.ts
+  - cspell.yml
