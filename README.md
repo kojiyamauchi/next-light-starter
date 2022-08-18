@@ -12,14 +12,11 @@
 - Development.
   - `yarn dev`
 - Build & Export.
-  - `yarn static`
+  - `yarn build`
 
 ## 🖋 Memo.
 
-- When Deploy on Subdirectory, Setting the Below.
-  - next.config.js -> `pathPrefix()`
-  - base.config.client.ts -> `baseSeo.location`
-  - package.json -> `config.path.prefix`
+- None.
 
 ## ✋ TODO.
 
