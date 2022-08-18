@@ -1,13 +1,14 @@
-import { useRouter } from 'next/router'
-import { GetStaticPaths, GetStaticPathsResult, GetStaticProps, GetStaticPropsResult } from 'next'
-import { pickPost, pickPosts, markdownToHtml, postPagePager } from '@/fetcher/api'
-import { PageProps, Post } from '@/types/type'
 import { baseCmsFields } from 'base.config.client'
-import { SEO } from '@/components/Seo'
+import { GetStaticPaths, GetStaticPathsResult, GetStaticProps, GetStaticPropsResult } from 'next'
+import { useRouter } from 'next/router'
+
+import { markdownToHtml, pickPost, pickPosts, postPagePager } from '@/cmsApi'
 import { BlogPostContent } from '@/components/Presentations/BlogPostContent'
 import { BlogPostData } from '@/components/Presentations/BlogPostData'
 import { BlogPostPager } from '@/components/Presentations/BlogPostPager'
 import { Image } from '@/components/Presentations/Image'
+import { SEO } from '@/components/Seo'
+import { PageProps, Post } from '@/types/type'
 
 type Props = {
   post: Post
@@ -53,7 +54,7 @@ export const getStaticProps: GetStaticProps = async ({ params }): Promise<GetSta
   }
 }
 
-const BlogPost: React.VFC<Props> = ({ post, prev, next }): JSX.Element => {
+const BlogPost: React.FC<Props> = ({ post, prev, next }): JSX.Element => {
   const router = useRouter()
 
   return (

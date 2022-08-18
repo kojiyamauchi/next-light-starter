@@ -1,14 +1,16 @@
+import { baseCmsFields } from 'base.config.client'
+import { GetStaticPaths, GetStaticPathsResult, GetStaticProps, GetStaticPropsResult } from 'next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { GetStaticPaths, GetStaticPathsResult, GetStaticProps, GetStaticPropsResult } from 'next'
-import { pickPosts, listPageInfo, pickListPageSlug } from '@/fetcher/api'
-import { PageProps, Post } from '@/types/type'
-import { baseCmsFields } from 'base.config.client'
-import { SEO } from '@/components/Seo'
-import { BlogListHeading } from '@/components/Presentations/BlogListHeading'
+
+import { listPageInfo, pickListPageSlug, pickPosts } from '@/cmsApi'
 import { BlogListData } from '@/components/Presentations/BlogListData'
+import { BlogListHeading } from '@/components/Presentations/BlogListHeading'
 import { BlogListPager } from '@/components/Presentations/BlogListPager'
 import { Image } from '@/components/Presentations/Image'
+import { SEO } from '@/components/Seo'
+import { pagesPath } from '@/types/$path'
+import { PageProps, Post } from '@/types/type'
 
 type Props = {
   numberPostsDisplayed: number
@@ -50,7 +52,7 @@ export const getStaticProps: GetStaticProps = async (): Promise<GetStaticPropsRe
   }
 }
 
-const BlogList: React.VFC<Props> = ({ numberPostsDisplayed, totalPage, posts }): JSX.Element => {
+const BlogList: React.FC<Props> = ({ numberPostsDisplayed, totalPage, posts }): JSX.Element => {
   const router = useRouter()
   const currentPageIndex = !router.query.slug || router.query.slug![0] === 'index' ? 1 : Number(router.query.slug)
   const skip = (currentPageIndex - 1) * numberPostsDisplayed
@@ -66,7 +68,7 @@ const BlogList: React.VFC<Props> = ({ numberPostsDisplayed, totalPage, posts }):
         return (
           index >= skip &&
           index < limit && (
-            <Link key={index} href={`/blog-post/${info.slug}`}>
+            <Link key={index} href={pagesPath.blog_post._slug(`${info.slug}`).$url()}>
               <a>
                 <article>
                   <Image image={info.image} extension="webp" alt={info.image} mobileMaxWidth="200px" desktopMaxWidth="300px" margin="0 0 5px 0" />
