@@ -131,8 +131,17 @@ module.exports = {
           files: [`${pickComponentsDir}/**/*.stories.tsx`],
           failOnWarning: true
         }),
-        new WebpackNotifierPlugin({ title: 'ESLint or Webpack Build | Storybook' }),
-        new ForkTsCheckerNotifierWebpackPlugin({ title: 'TypeScript | Storybook' })
+        new WebpackNotifierPlugin({
+          title: (params) => {
+            const status = `${params.status.charAt(0).toUpperCase()}${params.status.slice(1)}`
+            if (params.message.includes('eslint')) {
+              return `🧐 Storybook | ESLint - ${status}`
+            } else {
+              return `🏗 Storybook | Webpack Build - ${status}`
+            }
+          }
+        }),
+        new ForkTsCheckerNotifierWebpackPlugin({ title: 'Storybook | TypeScript' })
       ])
 
     return config
