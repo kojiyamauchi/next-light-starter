@@ -43,15 +43,6 @@ module.exports = {
   // Extend webpack config.
   webpackFinal: async (config, { configType }) => {
     const webpackEnvMode = configType.toLowerCase()
-    // Branches path prefix on production.
-    const branchesBasePath = () => {
-      if (webpackEnvMode === 'production') {
-        return !!basePath ? `${basePath}/storybook/` : '/storybook/'
-      } else {
-        return ''
-      }
-    }
-    config.output.publicPath = branchesBasePath()
 
     // Don’t watched other than the storybook files.
     config.watchOptions.ignored = /^(?!.*\.(stories|story))(?=.*\.(js|ts|tsx|jsx)$).*$|node_modules/
