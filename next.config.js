@@ -108,7 +108,5 @@ module.exports = {
     basePath: !!configPathPrefix() ? configPathPrefix().basePath : ''
   },
 
-  trailingSlash: true,
-
   ...configPathPrefix()
 }
