@@ -1,15 +1,17 @@
+import { baseCmsFields } from 'base.config.client'
+import { GetStaticPaths, GetStaticPathsResult, GetStaticProps, GetStaticPropsResult } from 'next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { GetStaticPaths, GetStaticPathsResult, GetStaticProps, GetStaticPropsResult } from 'next'
 import { ParsedUrlQuery } from 'querystring'
-import { pickPosts, listPageInfo, pickCategories, pickCategoryPosts, pickCategoriesInfo, pickCategoriesSlug } from '@/fetcher/api'
-import { PageProps, Post } from '@/types/type'
-import { baseCmsFields } from 'base.config.client'
-import { SEO } from '@/components/Seo'
-import { BlogListHeading } from '@/components/Presentations/BlogListHeading'
+
+import { listPageInfo, pickCategories, pickCategoriesInfo, pickCategoriesSlug, pickCategoryPosts, pickPosts } from '@/cmsApi'
 import { BlogListData } from '@/components/Presentations/BlogListData'
+import { BlogListHeading } from '@/components/Presentations/BlogListHeading'
 import { BlogListPager } from '@/components/Presentations/BlogListPager'
 import { Image } from '@/components/Presentations/Image'
+import { SEO } from '@/components/Seo'
+import { pagesPath } from '@/types/$path'
+import { PageProps, Post } from '@/types/type'
 
 type Props = {
   params: ParsedUrlQuery
@@ -55,7 +57,7 @@ export const getStaticProps: GetStaticProps = async ({ params }): Promise<GetSta
   }
 }
 
-const BlogCategory: React.VFC<Props> = ({ numberPostsDisplayed, totalPage, categoryPosts }): JSX.Element => {
+const BlogCategory: React.FC<Props> = ({ numberPostsDisplayed, totalPage, categoryPosts }): JSX.Element => {
   const router = useRouter()
   const categorySlug = router.query.slug![0]
   const currentPageIndex = !router.query.slug![1] || router.query.slug![1] === 'index' ? 1 : Number(router.query.slug![1])
@@ -76,7 +78,7 @@ const BlogCategory: React.VFC<Props> = ({ numberPostsDisplayed, totalPage, categ
         return (
           index >= skip &&
           index < limit && (
-            <Link key={index} href={`/blog-post/${info.slug}`}>
+            <Link key={index} href={pagesPath.blog_post._slug(`${info.slug}`).$url()}>
               <a>
                 <article>
                   <Image image={info.image} extension="webp" alt={info.image} mobileMaxWidth="200px" desktopMaxWidth="300px" margin="0 0 5px 0" />

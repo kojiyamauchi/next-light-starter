@@ -1,13 +1,12 @@
-/**
- * @jest-environment jsdom
- */
 /*
   Page Heading Component Unit Test.
 */
 
-import { PageHeading } from './Component'
-import { render /* ,screen */ } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
+
+import { render /* ,screen */ } from '@testing-library/react'
+
+import { PageHeading } from './Component'
 // import userEvent from '@testing-library/user-event'
 
 describe('Page Heading Component Unit Test', () => {

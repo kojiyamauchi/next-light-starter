@@ -2,14 +2,17 @@
   Fixed Layout.
 */
 
+import { useRouter } from 'next/router'
+
 import { HeaderContainer } from '@/components/Managements/HeaderContainer'
 import { Footer } from '@/components/Presentations/Footer'
-import { useRouter } from 'next/router'
 import { PageProps } from '@/types/type'
+
 import styles from './style.module.scss'
 
 type Props = {
   pages: PageProps['pages']
+  children?: React.ReactNode
 }
 
 export const FixedLayout: React.FC<Props> = ({ pages, children }): JSX.Element => {

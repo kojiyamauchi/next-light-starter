@@ -13,11 +13,13 @@
 
   Basically, Global State Management is Inject in Here.
 */
+import '@/styles/default.scss'
+
 import { NextComponentType, NextPageContext } from 'next'
 import { Router } from 'next/router'
-import { PageProps } from '@/types/type'
+
 import { Layout } from '@/components/Layouts'
-import '@/styles/default.scss'
+import { PageProps } from '@/types/type'
 
 type AppProps = {
   Component: NextComponentType<NextPageContext, unknown, PageProps>

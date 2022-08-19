@@ -1,6 +1,6 @@
+import { baseSeo } from 'base.config.client'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { baseSeo } from 'base.config.client'
 
 type Props = {
   title?: string
@@ -12,7 +12,7 @@ type Props = {
   ogpImage?: string
 }
 
-export const SEO: React.VFC<Props> = (props): JSX.Element => {
+export const SEO: React.FC<Props> = (props): JSX.Element => {
   const router = useRouter()
 
   const setSeo = {

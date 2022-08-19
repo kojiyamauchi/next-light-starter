@@ -1,10 +1,10 @@
 // @ts-nocheck
-/* eslint-disable */
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
-import { fooReducer } from './Foo'
-import { barReducer } from './Bar'
-import { persistReducer, persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
+import { configureStore } from '@reduxjs/toolkit'
+import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist'
 import sessionStorage from 'redux-persist/lib/storage/session'
+
+import { barReducer } from './Bar'
+import { fooReducer } from './Foo'
 
 const fooPersistConfig = {
   key: 'foo',
@@ -17,11 +17,13 @@ export const store = configureStore({
     barStore: barReducer
   },
   devTools: process.env.NODE_ENV !== 'production',
-  middleware: getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
-    }
-  })
+  middleware: (getDefaultMiddleware) => {
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
+      }
+    })
+  }
 })
 
 export const persistor = persistStore(store)

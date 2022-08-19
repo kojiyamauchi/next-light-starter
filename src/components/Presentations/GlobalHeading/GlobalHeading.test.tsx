@@ -1,13 +1,12 @@
-/**
- * @jest-environment jsdom
- */
 /*
   Global Heading Component Unit Test.
 */
 
-import { GlobalHeading } from './Component'
-import { render /* ,screen */ } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
+
+import { render /* ,screen */ } from '@testing-library/react'
+
+import { GlobalHeading } from './Component'
 // import userEvent from '@testing-library/user-event'
 
 describe('Global Heading Component Unit Test', () => {

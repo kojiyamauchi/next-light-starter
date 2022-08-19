@@ -1,13 +1,12 @@
-/**
- * @jest-environment jsdom
- */
 /*
   Blog Post Pager Component Unit Test.
 */
 
-import { BlogPostPager } from './Component'
-import { render /* ,screen */ } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
+
+import { render /* ,screen */ } from '@testing-library/react'
+
+import { BlogPostPager } from './Component'
 // import userEvent from '@testing-library/user-event'
 
 describe('Blog Post Pager Component Unit Test', () => {

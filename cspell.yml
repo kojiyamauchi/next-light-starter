@@ -1,0 +1,43 @@
+version: 0.2
+language: en
+words:
+  - apng
+  - callout
+  - docgen
+  - Docgen
+  - esbenp
+  - hygen
+  - immer
+  - Kaku
+  - kojiyamauchi
+  - msapplication
+  - nocheck
+  - nofilter
+  - noreferrer
+  - pathpida
+  - peaceiris
+  - persistor
+  - reduxjs
+  - reviewdog
+  - rimraf
+  - stylelint
+  - tsbuildinfo
+  - TYPECHECK
+  - vercel
+  - vfile
+  - webp
+  - webps
+  - Webps
+flagWords:
+  - hte
+ignorePaths:
+  - node_modules/**
+  - public/**
+  - .next/**
+  - .git/**
+  - .husky/**
+  - .history/**
+  - yarn.lock
+  - tsconfig.tsbuildinfo
+  - next-env.d.ts
+  - cspell.yml

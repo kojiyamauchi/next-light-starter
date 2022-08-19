@@ -19,6 +19,7 @@ plugins:
   - jest
   - react
   - react-hooks
+  - simple-import-sort
   - testing-library
   - jest-dom
 settings:
@@ -84,4 +85,6 @@ rules:
   'react/prop-types': off
   'react-hooks/rules-of-hooks': error
   'react-hooks/exhaustive-deps': warn
+  'simple-import-sort/imports': error
+  'simple-import-sort/exports': error
   '@typescript-eslint/ban-ts-comment': off
