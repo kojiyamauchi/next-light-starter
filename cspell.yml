@@ -12,6 +12,7 @@ words:
   - kojiyamauchi
   - msapplication
   - nocheck
+  - nofilter
   - noreferrer
   - pathpida
   - peaceiris
@@ -21,6 +22,7 @@ words:
   - rimraf
   - stylelint
   - tsbuildinfo
+  - TYPECHECK
   - vercel
   - vfile
   - webp
