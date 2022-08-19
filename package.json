@@ -107,7 +107,7 @@
     "build:app": "next build && rimraf public/webps/*.{png,jpg,jpeg,gif} && next export -o delivery/",
     "build:storybook": "build-storybook -s ./public -o delivery/storybook",
     "build:path": "pathpida -o ./src/types/",
-    "build": "run-p build:*",
+    "build": "run-p build:storybook",
     "serve": "next start",
     "clean": "rimraf delivery/* && touch delivery/.gitkeep",
     "jest": "jest --passWithNoTests",
