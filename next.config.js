@@ -11,7 +11,7 @@ const logFontBold = '\x1b[1m'
 const logFontColorCyan = '\u001b[36m'
 const logFontReset = '\x1b[0m'
 
-const pathPrefix = 'next-right-starter'
+const pathPrefix = 'next-light-starter'
 process.env.npm_package_config_path_prefix = pathPrefix
 const configPathPrefix = () => {
   if (!!process.env.npm_package_config_path_prefix) {
@@ -107,6 +107,8 @@ module.exports = {
     envMode: process.env.NODE_ENV,
     basePath: !!configPathPrefix() ? configPathPrefix().basePath : ''
   },
+
+  trailingSlash: true,
 
   ...configPathPrefix()
 }
