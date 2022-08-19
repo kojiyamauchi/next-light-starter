@@ -1,0 +1,1 @@
+{"pageProps":{"post":{"slug":"fourth","date":"2021-04-01","title":"Fourth Post.","categories":["cat-1","cat-2"],"description":"This is Fourth Blog Post.","image":"fourth_image","content":"<h1>Fourth Post.</h1>\n<p>This is Fourth Blog Post. 🧘‍♂️</p>\n"},"prev":"fifth","next":"third","chooseLayout":"blogPostLayout","pages":"blog-post"},"__N_SSG":true}
