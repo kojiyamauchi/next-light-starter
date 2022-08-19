@@ -107,6 +107,7 @@
     "build:app": "next build && rimraf public/webps/*.{png,jpg,jpeg,gif} && next export -o delivery/",
     "build:storybook": "build-storybook -s ./public -o delivery/storybook",
     "build:path": "pathpida -o ./src/types/",
+    "build:preview": "run-p build:app build:path && yarn build:storybook",
     "build": "run-p build:*",
     "serve": "next start",
     "clean": "rimraf delivery/* && touch delivery/.gitkeep",
