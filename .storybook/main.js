@@ -3,7 +3,6 @@ const path = require('path')
 const ForkTsCheckerNotifierWebpackPlugin = require('fork-ts-checker-notifier-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
-const Open = require('open')
 const pickComponentsDir = path.resolve(__dirname, '../src/components/')
 const { basePath } = require('../next.config')
 
@@ -156,8 +155,4 @@ module.exports = {
     // For that, It’s pending. | See -> https://github.com/babel/babel/issues/11622
     ...options
   })
-}
-
-if (process.env.NODE_ENV !== 'production') {
-  Open(`http://localhost:6006`, { app: { name: 'Google Chrome Canary' }, wait: true, newInstance: true })
 }
