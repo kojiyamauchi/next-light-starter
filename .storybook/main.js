@@ -5,7 +5,6 @@ const ESLintPlugin = require('eslint-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 const Open = require('open')
 const pickComponentsDir = path.resolve(__dirname, '../src/components/')
-const { basePath } = require('../next.config')
 
 module.exports = {
   stories: ['../src/components/**/*.stories.@(js|jsx|ts|tsx)'],
