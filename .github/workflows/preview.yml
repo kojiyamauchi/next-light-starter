@@ -35,7 +35,7 @@ jobs:
         run: yarn
       - name: Do Build
         if: env.LAUNCH_BUILD == 'on'
-        run: yarn build:preview
+        run: yarn preview
       - name: Do Deploy
         if: env.LAUNCH_DEPLOY == 'on'
         uses: peaceiris/actions-gh-pages@v3
