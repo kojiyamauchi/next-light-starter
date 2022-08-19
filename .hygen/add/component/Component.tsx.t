@@ -22,8 +22,8 @@ import styles from './style.module.scss'
 type Props = {
   <% Array.from({ length: addPropsNumber }, (_info, index) => { -%>
     <%= h.changeCase.camel(addPropsDetails[index][`addPropsName${index + 1}`]) %>: <%- addPropsDetails[index][`addPropsType${index + 1}`] %>
-  <% }) %>
-  <%= addChildren ? 'children: React.ReactNode' : '' -%>
+  <% }) -%>
+  <%= addChildren ? 'children?: React.ReactNode' : '' -%>
 }
 <% } %>
 
@@ -33,7 +33,7 @@ export const <%= componentName %>: React.FC<%- addPropsNumber > 0 ? '<Props>' : 
       <%= `${h.changeCase.camel(addPropsDetails[index][`addPropsName${index + 1}`])},` %>
     <% }) -%>
   <% } -%>
-  <%= addChildren ? ',children' : '' -%>
+  <%= addChildren ? 'children' : '' -%>
   <%= addPropsNumber > 0 || addChildren ? '}' : '' %>): JSX.Element => {
   <% if (useHooks) { %>
   const {
